@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Harbour Hotel — the centre books</title></head>
+<body>
+<main><h1>Harbour Hotel</h1><p>Twelve rooms above the harbour.</p></main>
+<!-- A vision hint points at the middle of the screen; the control there
+     commits, so the press must be refused (ADR-0043). -->
+<button type="button" id="book"
+  style="position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:180px;height:56px">Book now</button>
+<div id="chat" hidden>
+  <div class="hi-webchat-container">
+    <div class="hi-messages" id="chat-log"></div>
+    <textarea class="hi-input" placeholder="Type your message" aria-label="Message"></textarea>
+    <button type="button" class="hi-send" aria-label="Send message">Send</button>
+  </div>
+</div>
+<script>
+  window.booked = false;
+  document.getElementById("book").onclick = () => { window.booked = true; };
+</script>
+</body>
+</html>

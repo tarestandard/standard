@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Harbour Hotel — dialog after the launcher</title>
+<style>
+  #offer{position:fixed;inset:0;background:rgba(20,24,20,.75);display:flex;align-items:center;justify-content:center;z-index:100}
+  #offer .box{background:#fff;padding:24px;max-width:420px}
+  [hidden]{display:none!important}
+</style></head>
+<body>
+<main><h1>Harbour Hotel</h1><p>Twelve rooms above the harbour.</p></main>
+<button type="button" id="chat-launcher" class="hi-launcher-container chat-launcher" aria-label="Chat with the front desk">Chat with us</button>
+<div id="offer" role="dialog" aria-modal="true" hidden>
+  <div class="box">
+    <h2>Before you chat</h2>
+    <p>Our assistant can help with bookings.</p>
+    <button type="button" id="continue">Continue without accepting</button>
+    <button type="button" id="accept">Accept all</button>
+  </div>
+</div>
+<div id="chat" hidden>
+  <div class="hi-webchat-container">
+    <div class="hi-messages" id="chat-log"></div>
+    <textarea class="hi-input" placeholder="Type your message" aria-label="Message"></textarea>
+    <button type="button" class="hi-send" aria-label="Send message">Send</button>
+  </div>
+</div>
+<script>
+  const log = document.getElementById("chat-log");
+  const input = document.querySelector(".hi-input");
+  const add = (who, text) => {
+    const el = document.createElement("div");
+    el.className = `hi-message hi-${who}`;
+    el.setAttribute("data-sender", who === "bot" ? "bot" : "user");
+    el.textContent = text;
+    log.appendChild(el);
+  };
+  document.getElementById("chat-launcher").onclick = () => { document.getElementById("offer").hidden = false; };
+  document.getElementById("continue").onclick = () => {
+    document.getElementById("offer").hidden = true;
+    document.getElementById("chat").hidden = false;
+  };
+  document.querySelector(".hi-send").onclick = () => {
+    const text = input.value.trim();
+    if (!text) return;
+    add("user", text);
+    input.value = "";
+    add("bot", "Front desk here.");
+  };
+</script>
+</body>
+</html>

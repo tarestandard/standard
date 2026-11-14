@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harbour Hotel — book a room</title>
+<style>
+  :root{--stock:#E8E2D2;--ink:#20241F}
+  body{margin:0;background:var(--stock);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+  main{max-width:640px;margin:0 auto;padding:40px 24px}
+  h1{font-size:34px;margin:0 0 8px}
+  form#booking{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--ink);padding-top:16px;margin-top:24px;max-width:420px}
+  textarea{min-height:110px;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px;font:inherit}
+  button{border:1px solid var(--ink);background:transparent;color:var(--ink);padding:10px 14px;cursor:pointer}
+  #chat-root{position:fixed;right:20px;bottom:20px;z-index:10}
+  .chat-launcher{background:var(--ink);color:var(--stock)}
+  .chat-panel{width:320px;border:1px solid var(--ink);background:var(--stock);display:flex;flex-direction:column}
+  .chat-panel[hidden]{display:none}
+  .messages{height:220px;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+  .message{padding:7px 10px;max-width:86%;font-size:14px}
+  .message.bot{background:#CBD3C0;align-self:flex-start}
+  .message.user{border:1px solid var(--ink);align-self:flex-end}
+  #chat-form{display:flex;gap:8px;border-top:1px solid var(--ink);padding:8px}
+  #chat-input{flex:1;min-height:44px;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px;font:inherit}
+</style>
+</head>
+<body>
+<main>
+  <h1>Harbour Hotel</h1>
+  <p>Twelve rooms above the harbour. Tell us what you need and we will confirm by email.</p>
+
+  <!-- The trap: a real booking form whose textarea also says "Type your message". -->
+  <form id="booking" action="/book" method="post">
+    <label for="booking-notes">Special requests</label>
+    <textarea id="booking-notes" placeholder="Type your message"></textarea>
+    <button type="submit">Book this room</button>
+  </form>
+</main>
+
+<div id="chat-root" class="chat-widget">
+  <button id="chat-launcher" class="chat-launcher" type="button" aria-label="Chat with the front desk">Chat with us</button>
+  <section id="chat-panel" class="chat-panel" hidden aria-label="Front desk chat">
+    <div id="chat-log" class="messages" role="log" aria-live="polite"></div>
+    <form id="chat-form" method="dialog">
+      <textarea id="chat-input" placeholder="Type your message" aria-label="Message"></textarea>
+      <button id="chat-send" class="send" type="submit" aria-label="Send message">Send</button>
+    </form>
+  </section>
+</div>
+
+<script>
+  (() => {
+    window.bookingSubmitted = false;
+    document.getElementById("booking").addEventListener("submit", (event) => {
+      event.preventDefault();
+      window.bookingSubmitted = true;
+    });
+
+    const launcher = document.getElementById("chat-launcher");
+    const panel = document.getElementById("chat-panel");
+    const log = document.getElementById("chat-log");
+    const input = document.getElementById("chat-input");
+    const form = document.getElementById("chat-form");
+    let turn = 0;
+    let greeted = false;
+
+    const add = (who, text) => {
+      const el = document.createElement("div");
+      el.className = `message ${who}`;
+      el.textContent = text;
+      log.appendChild(el);
+      log.scrollTop = log.scrollHeight;
+    };
+
+    const send = () => {
+      const text = input.value.trim();
+      if (!text) return;
+      add("user", text);
+      input.value = "";
+      turn += 1;
+      window.setTimeout(() => {
+        add("bot", `Front desk: I can check that for you. (reply ${turn})`);
+      }, 120);
+    };
+
+    launcher.addEventListener("click", () => {
+      panel.hidden = false;
+      launcher.hidden = true;
+      if (!greeted) {
+        greeted = true;
+        add("bot", "Hello — I'm the front desk assistant. How can I help?");
+      }
+      input.focus();
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      send();
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        send();
+      }
+    });
+  })();
+</script>
+</body>
+</html>

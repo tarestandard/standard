@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Harbour Hotel — quick replies</title></head>
+<body>
+<main><h1>Harbour Hotel</h1><p>Twelve rooms above the harbour.</p></main>
+<button type="button" id="chat-launcher" class="hi-launcher-container chat-launcher" aria-label="Chat with the front desk">Chat with us</button>
+<div id="chat" hidden>
+  <div class="hi-webchat-container">
+    <div class="hi-messages" id="chat-log"></div>
+    <div class="hi-quick-replies" id="chips" hidden>
+      <button type="button" data-room="Deluxe Room">Deluxe Room</button>
+      <button type="button" data-room="Twin Room">Twin Room</button>
+    </div>
+    <textarea class="hi-input" placeholder="Type your message" aria-label="Message"></textarea>
+    <button type="button" class="hi-send" aria-label="Send message">Send</button>
+  </div>
+</div>
+<script>
+  // A bot that only advances when its chip is pressed: the typed line gets the
+  // same question back. A guest would tap "Deluxe Room" (ADR-0041).
+  const log = document.getElementById("chat-log");
+  const input = document.querySelector(".hi-input");
+  const chips = document.getElementById("chips");
+  const add = (who, text) => {
+    const el = document.createElement("div");
+    el.className = `hi-message hi-${who}`;
+    el.setAttribute("data-sender", who === "bot" ? "bot" : "user");
+    el.textContent = text;
+    log.appendChild(el);
+  };
+  document.getElementById("chat-launcher").onclick = () => {
+    document.getElementById("chat").hidden = false;
+    add("bot", "Hello — I am the front desk assistant.");
+  };
+  document.querySelector(".hi-send").onclick = () => {
+    const text = input.value.trim();
+    if (!text) return;
+    add("user", text);
+    input.value = "";
+    add("bot", "Which room would you like?");
+    chips.hidden = false;
+  };
+  for (const chip of chips.querySelectorAll("button")) {
+    chip.onclick = () => {
+      add("user", chip.dataset.room);
+      add("bot", `${chip.dataset.room} held for you.`);
+      chips.hidden = true;
+    };
+  }
+</script>
+</body>
+</html>

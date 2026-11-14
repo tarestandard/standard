@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Harbour Hotel — rooms in a panel</title></head>
+<body>
+<main><h1>Harbour Hotel</h1><p>Twelve rooms above the harbour.</p></main>
+<button type="button" id="chat-launcher" class="hi-launcher-container chat-launcher" aria-label="Chat with the front desk">Chat with us</button>
+<div id="chat" hidden>
+  <div class="hi-webchat-container">
+    <div class="hi-messages" id="chat-log"></div>
+    <div class="hi-carousel" id="cards" hidden>
+      <div class="hi-card"><b>Deluxe Harbour Room</b><span>£185 per night</span><button type="button">Select</button></div>
+      <div class="hi-card"><b>Standard Twin</b><span>£140 per night</span><button type="button">Select</button></div>
+    </div>
+    <textarea class="hi-input" placeholder="Type your message" aria-label="Message"></textarea>
+    <button type="button" class="hi-send" aria-label="Send message">Send</button>
+  </div>
+</div>
+<script>
+  // The same offer, rendered beside the log instead of inside it. The bubble
+  // says only "Here are our rooms"; the rates are in the panel.
+  const log = document.getElementById("chat-log");
+  const input = document.querySelector(".hi-input");
+  let turns = 0;
+  const add = (who, text) => {
+    const el = document.createElement("div");
+    el.className = `hi-message hi-${who}`;
+    el.setAttribute("data-sender", who === "bot" ? "bot" : "user");
+    el.textContent = text;
+    log.appendChild(el);
+  };
+  document.getElementById("chat-launcher").onclick = () => {
+    document.getElementById("chat").hidden = false;
+    add("bot", "Hello — I am the front desk assistant.");
+  };
+  document.querySelector(".hi-send").onclick = () => {
+    const text = input.value.trim();
+    if (!text) return;
+    add("user", text);
+    input.value = "";
+    turns += 1;
+    if (turns === 1) {
+      add("bot", "Here are our rooms for tonight:");
+      document.getElementById("cards").hidden = false;
+    } else {
+      add("bot", "Which room would you like?");
+    }
+  };
+</script>
+</body>
+</html>

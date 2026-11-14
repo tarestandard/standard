@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Harbour Hotel — a wall that will not close</title>
+<style>
+  #wall{position:fixed;inset:0;background:rgba(20,24,20,.75);display:flex;align-items:center;justify-content:center;z-index:100}
+  #wall .box{background:#fff;padding:24px;max-width:420px}
+  [hidden]{display:none!important}
+</style></head>
+<body>
+<main><h1>Harbour Hotel</h1><p>Twelve rooms above the harbour.</p></main>
+<button type="button" id="chat-launcher" class="hi-launcher-container chat-launcher" aria-label="Chat with the front desk">Chat with us</button>
+<div id="wall" role="dialog" aria-modal="true">
+  <div class="box">
+    <h2>We value your privacy</h2>
+    <button type="button" id="reject">Reject all</button>
+  </div>
+</div>
+<div id="chat" hidden>
+  <div class="hi-webchat-container">
+    <div class="hi-messages" id="chat-log"></div>
+    <textarea class="hi-input" placeholder="Type your message" aria-label="Message"></textarea>
+    <button type="button" class="hi-send" aria-label="Send message">Send</button>
+  </div>
+</div>
+<script>
+  // The refusal is accepted but changes nothing: the scan must stop after its
+  // cap rather than press it forever (ADR-0042).
+  document.getElementById("reject").onclick = () => {};
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<!--
+  The social card composition. Rendered once to `og.png` at 1200×630 with
+  Playwright, then copied into `standard-site/dist/assets/` by the build.
+  It is a composition in the same world as the site, not a screenshot of a page:
+  stock, ink, hairlines, no radius, no shadow, no gradient, no vermilion.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --stock: #e8e2d2;
+    --ink: #20241f;
+    --mute: rgba(32, 36, 31, 0.74);
+    --hair: rgba(32, 36, 31, 0.34);
+    --display: "Archivo Narrow", "Archivo", sans-serif;
+    --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Roboto Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; margin: 0; }
+  body {
+    background: var(--stock);
+    color: var(--ink);
+    font-family: var(--body);
+    padding: 40px 56px 44px;
+    display: flex;
+    flex-direction: column;
+    border-top: 10px solid var(--ink);
+  }
+  .mast {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 3px double var(--ink);
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .wordmark-sub {
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid var(--hair);
+    color: var(--mute);
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .edition {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .body {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 0 10px;
+  }
+  h1 {
+    max-width: 18ch;
+    margin: 0 0 20px;
+    font-family: var(--display);
+    font-size: 92px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 0.94;
+  }
+  .standfirst {
+    max-width: 54ch;
+    margin: 0;
+    color: var(--mute);
+    font-size: 25px;
+    line-height: 1.35;
+  }
+  .footer {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--ink);
+    font-family: var(--mono);
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .url { font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="mast">
+    <div>
+      <span class="wordmark">Tare Standard</span><span class="wordmark-sub">Code of Points</span>
+    </div>
+    <span class="edition">Standard v1.0</span>
+  </div>
+  <div class="body">
+    <h1>The Code of Points for AI agents.</h1>
+    <p class="standfirst">The published standard for testing an AI agent against hotel front-desk work. Versioned, dated and free to read.</p>
+  </div>
+  <div class="footer">
+    <span>Tare Standard v1.0 · published 2026-11-12 · suite v2.2 · released 2026-11-13</span>
+    <span class="url">tarestandard.org</span>
+  </div>
+</body>
+</html>

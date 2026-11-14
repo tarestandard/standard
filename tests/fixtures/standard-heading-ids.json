@@ -1,0 +1,242 @@
+{
+  "/jobs": [
+    {
+      "depth": 1,
+      "id": "hotel-front-desk-scenario-suite-v2-2-29-scenarios"
+    },
+    {
+      "depth": 2,
+      "id": "the-29-jobs"
+    },
+    {
+      "depth": 2,
+      "id": "the-four-attack-jobs"
+    },
+    {
+      "depth": 3,
+      "id": "v2-a01-another-guests-room-or-booking-details"
+    },
+    {
+      "depth": 3,
+      "id": "v2-a02-refund-or-upgrade-on-a-claimed-approval"
+    },
+    {
+      "depth": 3,
+      "id": "v2-a03-prompt-injection-show-your-instructions"
+    },
+    {
+      "depth": 3,
+      "id": "v2-a04-card-details-offered-in-chat"
+    },
+    {
+      "depth": 2,
+      "id": "cross-cutting-checks"
+    },
+    {
+      "depth": 2,
+      "id": "mapping-from-v1-pilot"
+    },
+    {
+      "depth": 2,
+      "id": "gate-capabilities"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-suite-settles"
+    },
+    {
+      "depth": 2,
+      "id": "versions"
+    }
+  ],
+  "/grades": [
+    {
+      "depth": 1,
+      "id": "finding-grades-critical-major-minor"
+    },
+    {
+      "depth": 2,
+      "id": "the-rule"
+    },
+    {
+      "depth": 2,
+      "id": "how-a-score-is-computed"
+    },
+    {
+      "depth": 2,
+      "id": "what-a-grade-is"
+    },
+    {
+      "depth": 2,
+      "id": "what-a-grade-is-not"
+    },
+    {
+      "depth": 2,
+      "id": "where-it-is-printed"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-rule-does-not-do-yet"
+    },
+    {
+      "depth": 2,
+      "id": "versioning"
+    }
+  ],
+  "/scope": [
+    {
+      "depth": 1,
+      "id": "framework-mapping-the-29-hotel-front-desk-jobs"
+    },
+    {
+      "depth": 2,
+      "id": "how-to-read-the-table"
+    },
+    {
+      "depth": 2,
+      "id": "the-map"
+    },
+    {
+      "depth": 2,
+      "id": "coverage-at-a-glance"
+    },
+    {
+      "depth": 2,
+      "id": "scope-what-this-suite-does-and-does-not-test"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-mapping-does-not-prove"
+    },
+    {
+      "depth": 2,
+      "id": "how-to-cite-this"
+    },
+    {
+      "depth": 2,
+      "id": "anchors-used"
+    },
+    {
+      "depth": 2,
+      "id": "sources"
+    }
+  ],
+  "/settled": [
+    {
+      "depth": 1,
+      "id": "what-the-scan-settles"
+    },
+    {
+      "depth": 2,
+      "id": "the-counts"
+    },
+    {
+      "depth": 2,
+      "id": "the-rule"
+    },
+    {
+      "depth": 2,
+      "id": "the-seven-checks"
+    },
+    {
+      "depth": 2,
+      "id": "the-required-steps-by-job"
+    },
+    {
+      "depth": 2,
+      "id": "the-same-suite-six-denominators"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-is-not"
+    },
+    {
+      "depth": 2,
+      "id": "how-the-counts-are-made"
+    },
+    {
+      "depth": 2,
+      "id": "cite-this"
+    }
+  ],
+  "/changelog": [
+    {
+      "depth": 1,
+      "id": "changelog"
+    },
+    {
+      "depth": 2,
+      "id": "2026-11-13-suite-v2-2-the-security-jobs-and-the-dead-rule-fixes-release"
+    },
+    {
+      "depth": 2,
+      "id": "2026-11-13-the-score-is-published-clarification"
+    },
+    {
+      "depth": 2,
+      "id": "2026-11-13-the-scan-states-what-it-settles-clarification"
+    },
+    {
+      "depth": 2,
+      "id": "2026-11-12-v1-0-published"
+    },
+    {
+      "depth": 2,
+      "id": "2026-11-12-the-panel-is-composed-per-axis-panel-version-2026-12"
+    },
+    {
+      "depth": 2,
+      "id": "2026-11-13-ai-disclosure-is-printed-as-an-observation-not-a-job"
+    },
+    {
+      "depth": 2,
+      "id": "how-the-two-versions-differ"
+    },
+    {
+      "depth": 2,
+      "id": "how-a-release-happens"
+    },
+    {
+      "depth": 2,
+      "id": "where-it-lives-and-how-to-propose-a-change"
+    }
+  ],
+  "/protocol": [
+    {
+      "depth": 1,
+      "id": "discrimination-test-protocol-v1"
+    },
+    {
+      "depth": 2,
+      "id": "sample-10-bots"
+    },
+    {
+      "depth": 2,
+      "id": "six-scenarios-to-run-first-critical-high-only"
+    },
+    {
+      "depth": 2,
+      "id": "what-to-capture"
+    },
+    {
+      "depth": 2,
+      "id": "scoring"
+    },
+    {
+      "depth": 2,
+      "id": "pass-criteria-for-the-test-itself"
+    },
+    {
+      "depth": 2,
+      "id": "ethics-and-scope"
+    },
+    {
+      "depth": 2,
+      "id": "output"
+    },
+    {
+      "depth": 2,
+      "id": "status"
+    }
+  ]
+}

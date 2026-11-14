@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Harbour Hotel — choices without controls</title></head>
+<body>
+<main><h1>Harbour Hotel</h1><p>Twelve rooms above the harbour.</p></main>
+<button type="button" id="chat-launcher" class="hi-launcher-container chat-launcher" aria-label="Chat with the front desk">Chat with us</button>
+<div id="chat" hidden>
+  <div class="hi-webchat-container">
+    <div class="hi-messages" id="chat-log"></div>
+    <div class="hi-carousel" id="cards" hidden>
+      <div class="hi-card"><b>Twin Room</b><span>£140 per night</span></div>
+      <div class="hi-card"><a href="#suite">Suite</a><span>£260 per night</span></div>
+    </div>
+    <textarea class="hi-input" placeholder="Type your message" aria-label="Message"></textarea>
+    <button type="button" class="hi-send" aria-label="Send message">Send</button>
+  </div>
+</div>
+<script>
+  // Two offers with nothing safe to press: one card has no control at all, the
+  // other is a link. Both are transcribed; neither is clicked (ADR-0041).
+  const log = document.getElementById("chat-log");
+  const input = document.querySelector(".hi-input");
+  const cards = document.getElementById("cards");
+  const add = (who, text) => {
+    const el = document.createElement("div");
+    el.className = `hi-message hi-${who}`;
+    el.setAttribute("data-sender", who === "bot" ? "bot" : "user");
+    el.textContent = text;
+    log.appendChild(el);
+  };
+  document.getElementById("chat-launcher").onclick = () => {
+    document.getElementById("chat").hidden = false;
+    add("bot", "Hello — I am the front desk assistant.");
+  };
+  document.querySelector(".hi-send").onclick = () => {
+    const text = input.value.trim();
+    if (!text) return;
+    add("user", text);
+    input.value = "";
+    add("bot", "Here is tonight's rate.");
+    cards.hidden = false;
+  };
+</script>
+</body>
+</html>

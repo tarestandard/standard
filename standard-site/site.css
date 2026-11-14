@@ -1,0 +1,1886 @@
+/* Tare Standard — the published Code of Points.
+   A Read surface in the Weights and Measures world: buff stock, ink, hairlines,
+   one vermilion mark where it means something. No gradients, cards, shadows or
+   rounded corners. */
+
+:root {
+  --stock: #e8e2d2;
+  --ink: #20241f;
+  --grn: #a8321e;
+  --sage: #cbd3c0;
+  --graphite: #3f4a52;
+  --pass: #3f5d4a;
+  --rule: rgba(32, 36, 31, 0.55);
+  --hair: rgba(32, 36, 31, 0.34);
+  --mute: rgba(32, 36, 31, 0.74);
+  --display: "Archivo Narrow", "Archivo", sans-serif;
+  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Roboto Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --frame: 1180px;
+  /* A length, not a `ch`: `56ch` resolved in each element's own font, so the
+     h2 rule and the blockquote ran wider than the prose they divide. 34rem is
+     the same 544px column in the reading face. */
+  --measure: 34rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--stock);
+  color: var(--ink);
+  color-scheme: light;
+  scroll-padding-top: 24px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  background: var(--stock);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.68;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--stock);
+}
+
+:focus-visible {
+  outline: 3px solid var(--grn);
+  outline-offset: 3px;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--rule);
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+.skip {
+  position: absolute;
+  top: 12px;
+  left: -9999px;
+  z-index: 10;
+  background: var(--ink);
+  color: var(--stock);
+  padding: 10px 14px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.skip:focus {
+  left: 12px;
+}
+
+/* Masthead and running head ------------------------------------------------ */
+
+.masthead {
+  border-top: 4px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+}
+
+.masthead-inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  width: 100%;
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: 20px 32px 15px;
+}
+
+.wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.wordmark-name {
+  font-family: var(--display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.wordmark-sub {
+  border-left: 1px solid var(--hair);
+  padding-left: 12px;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  align-items: baseline;
+}
+
+.site-nav a {
+  position: relative;
+  display: inline-block;
+  padding-block: 5px;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.site-nav a::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-right: 7px;
+  background: transparent;
+  vertical-align: 2px;
+}
+
+.site-nav a[aria-current="page"]::before {
+  background: var(--grn);
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+  text-underline-offset: 0.3em;
+}
+
+.running-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: 8px 32px 10px;
+  border-top: 1px solid var(--hair);
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* The left slot carries the section being read, as a printed running head
+   does; the dated version line stays on the right. */
+.running-section {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* The front page: a title page and a ruled contents table ------------------ */
+
+.front {
+  width: 100%;
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.title-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: clamp(40px, 7vw, 104px);
+  align-items: start;
+  padding: clamp(52px, 8vw, 104px) 0 48px;
+  /* One rule closes the title page: the Contents h2 rule below. A second full
+     rule here sat 57px above it and read as a doubled line. */
+}
+
+.title-block h1 {
+  max-width: 12ch;
+  margin: 0 0 18px;
+  font-family: var(--display);
+  font-size: clamp(3.4rem, 7.2vw, 5.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.standfirst {
+  max-width: 24ch;
+  margin: 0 0 24px;
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.14;
+  text-wrap: balance;
+}
+
+.intro,
+.intro-note {
+  max-width: var(--measure);
+}
+
+.intro {
+  margin: 0 0 18px;
+}
+
+.intro-note {
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--hair);
+  color: var(--mute);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.edition {
+  /* The edition block ends on the title page's foot instead of leaving a
+     234px empty gutter under it. */
+  align-self: end;
+  margin: 0;
+  border-top: 1px solid var(--ink);
+}
+
+.edition div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--hair);
+}
+
+.edition dt {
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.edition dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.contents h2,
+.scope-note h2,
+.cite h2 {
+  margin: 56px 0 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 2.6vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.contents-table {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  border-collapse: collapse;
+}
+
+.contents-table th {
+  padding: 10px 14px 10px 0;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.contents-table td {
+  padding: 18px 18px 18px 0;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: top;
+}
+
+.contents-table td:first-child {
+  width: 30%;
+}
+
+.contents-table td:first-child a {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.contents-table td:first-child a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+}
+
+.contents-table td:nth-child(2) {
+  color: var(--mute);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.cite {
+  max-width: var(--measure);
+}
+
+/* The scope reads as an argument beside its own figure: the paragraph names
+   the six, the tally shows the forty-four. Below 1360 the figure sits under
+   the argument, which is where it was going anyway. */
+.scope-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 34px 0;
+}
+
+.scope-argument {
+  max-width: var(--measure);
+}
+
+.tally {
+  margin: 0;
+  max-width: 19rem;
+}
+
+.tally-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1.45rem);
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.tally-cell {
+  aspect-ratio: 1;
+  border: 1px solid var(--hair);
+}
+
+.tally-cell--with {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.tally-caption {
+  margin: 0;
+  max-width: 22rem;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+}
+
+.tally-count {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+@media (min-width: 1360px) {
+  /* The wide screen has room for both, and the figure ends the dead gutter
+     that ran down the last third of the front page. */
+  .scope-note {
+    grid-template-columns: minmax(0, var(--measure)) minmax(0, 1fr);
+    gap: 0 clamp(32px, 4vw, 72px);
+    align-items: start;
+  }
+
+  .tally {
+    padding-top: 8px;
+  }
+}
+
+.scope-note p,
+.cite p {
+  margin: 0 0 1.1em;
+}
+
+.scope-note blockquote {
+  margin: 30px 0 24px;
+}
+
+.scope-link {
+  grid-column: 1;
+  margin-top: -20px;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.scope-note {
+  padding-bottom: 8px;
+}
+
+.cite {
+  padding-bottom: 24px;
+}
+
+/* A fold-out table carries a 680px min-width, so below 1040 it scrolls inside
+   its own region. Say so where it is true: the cue is hidden above 1040, where
+   the table fits, and it is never aria-hidden, so the promise is announced. */
+.table-hint {
+  display: none;
+  margin: 26px 0 -10px;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1039px) {
+  .table-hint {
+    display: block;
+  }
+}
+
+/* A document: margin rail, running contents, reading column ---------------- */
+
+.doc-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px minmax(0, var(--measure));
+  gap: clamp(36px, 5vw, 64px);
+  align-items: start;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.doc-shell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 252px;
+  width: 1px;
+  background: var(--hair);
+}
+
+.rail {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  padding: 44px 26px 40px 0;
+}
+
+.rail-title {
+  margin: 0 0 14px;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.toc-list {
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.toc-list li {
+  margin: 0 0 8px;
+}
+
+.toc-list a {
+  display: inline-block;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.28;
+  text-decoration: none;
+}
+
+.toc-list a::before {
+  content: "—";
+  margin-right: 8px;
+  color: var(--hair);
+}
+
+.toc-list a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+  text-underline-offset: 0.2em;
+}
+
+/* The rail cites the clause as §N; the heading prints the bare number. */
+.toc-list .clause {
+  margin-right: 2px;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* The register's v2.2 group sits under its section, not in the clause list. */
+.toc-list .toc-group {
+  margin: 2px 0 10px 22px;
+}
+
+.toc-list .toc-group a {
+  color: var(--mute);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.doc-meta {
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--hair);
+}
+
+.doc-meta div {
+  margin: 0 0 10px;
+}
+
+.doc-meta dt {
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.doc-meta dd {
+  margin: 2px 0 0;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* The right margin: citation apparatus on wide pages, absent below 1360.
+   The rail's doc-meta and the colophon carry the same facts there. */
+.margin {
+  display: none;
+  margin: 0;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  line-height: 1.55;
+}
+
+.margin p {
+  margin: 0 0 12px;
+}
+
+.margin-citation {
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.margin-links a {
+  display: inline-block;
+  padding-block: 4px;
+}
+
+.document {
+  min-width: 0;
+  padding: 44px 0 64px;
+}
+
+.document h1 {
+  max-width: 24ch;
+  margin: 0 0 24px;
+  font-family: var(--display);
+  font-size: clamp(2.45rem, 4.6vw, 3.55rem);
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+/* One citation apparatus, at the top of every document: the sentence and the
+   URLs it can be read as, folded away until a reader asks for them. It used to
+   be a jump to the foot of the page, and the frozen-edition link lived only in
+   the wide-screen margin. */
+.doc-cite {
+  margin: 0 0 26px;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.doc-cite summary {
+  display: inline-block;
+  list-style: none;
+  padding: 6px 0;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--hair);
+  text-underline-offset: 3px;
+}
+
+.doc-cite summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--mute);
+}
+
+.doc-cite[open] summary::before {
+  content: "▾";
+  color: var(--ink);
+}
+
+.doc-cite summary:hover,
+.doc-cite[open] summary {
+  text-decoration-color: var(--ink);
+}
+
+.doc-cite[open] summary {
+  margin-bottom: 12px;
+}
+
+.cite-body {
+  padding: 2px 0 4px 14px;
+  border-left: 1px solid var(--hair);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: 1.55;
+  text-transform: none;
+}
+
+.cite-line {
+  margin: 0 0 10px;
+  user-select: all;
+}
+
+.cite-url {
+  margin: 0 0 6px;
+  overflow-wrap: break-word;
+}
+
+.cite-url-label {
+  display: inline-block;
+  min-width: 6.5rem;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cite-line time {
+  white-space: nowrap;
+}
+
+.citation-url {
+  overflow-wrap: normal;
+  user-select: all;
+}
+
+/* A phone keeps the dated line under the title; the rail that carries it on
+   desktop is removed at 900. */
+.doc-meta-line {
+  display: none;
+  margin: 0 0 20px;
+  padding: 9px 0;
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+.doc-contents {
+  display: none;
+  margin: 0 0 30px;
+  padding-top: 10px;
+  border-top: 1px solid var(--ink);
+}
+
+.doc-contents summary {
+  padding-block: 5px;
+  color: var(--mute);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.doc-contents-list {
+  margin: 6px 0 4px;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--hair);
+  list-style: none;
+}
+
+.doc-contents-list li {
+  margin: 0 0 8px;
+}
+
+.doc-contents-list a {
+  display: inline-block;
+  padding-block: 3px;
+  font-family: var(--display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.28;
+  text-decoration: none;
+}
+
+.doc-contents-list a::before {
+  content: "—";
+  margin-right: 8px;
+  color: var(--hair);
+}
+
+/* One dated line per document, in one grammar. It used to be five grammars
+   in five documents and 90 characters of 12px capitals: an apparatus that is
+   not standardised teaches the reader the apparatus is decoration. */
+.document .doc-kicker {
+  display: block;
+  margin: 0 0 1.4em;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--hair);
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+/* A kicker that quotes a file path is prose, not a label: upper-casing a path
+   turns one line into four on a phone. */
+.document .doc-kicker--code {
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  text-transform: none;
+}
+
+.document h2 {
+  margin: 56px 0 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+  font-weight: 700;
+  letter-spacing: -0.008em;
+  line-height: 1.12;
+  scroll-margin-top: 24px;
+  text-wrap: balance;
+}
+
+.document h3 {
+  margin: 36px 0 10px;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  scroll-margin-top: 24px;
+  text-wrap: balance;
+}
+
+/* Clause numbers sit beside the heading, in the display face, never inside
+   the heading's accessible name (the span is aria-hidden). */
+.document .clause {
+  margin-right: 0.4em;
+  color: var(--mute);
+  font-family: var(--display);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.document p {
+  margin: 0 0 1.1em;
+  overflow-wrap: break-word;
+}
+
+.document a {
+  overflow-wrap: anywhere;
+}
+
+.document ul,
+.document ol {
+  margin: 0 0 1.3em;
+  padding-left: 1.35em;
+}
+
+.document li {
+  margin: 0 0 0.45em;
+  padding-left: 0.15em;
+}
+
+.document li::marker {
+  color: var(--mute);
+}
+
+.document strong {
+  font-weight: 600;
+}
+
+.document code {
+  padding: 0.08em 0.3em;
+  background: rgba(32, 36, 31, 0.055);
+  font-family: var(--mono);
+  font-size: 0.86em;
+  font-variant-numeric: tabular-nums;
+}
+
+.document pre {
+  margin: 22px 0 28px;
+  padding: 14px 16px;
+  border: 1px solid var(--hair);
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.document pre code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+}
+
+.document blockquote,
+.scope-note blockquote {
+  margin: 32px 0;
+  padding: 18px 0 20px;
+  border-top: 1px solid var(--grn);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.document blockquote p,
+.scope-note blockquote p {
+  margin: 0;
+}
+
+.document blockquote em,
+.document blockquote strong,
+.scope-note blockquote em,
+.scope-note blockquote strong {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Ruled tables ------------------------------------------------------------- */
+
+.table-scroll {
+  margin: 24px 0 30px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.table-scroll:focus-visible {
+  outline-offset: -3px;
+}
+
+.table-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+
+/* Only a table of five columns or more folds out. A two- or three-column
+   table sizes to the reading column; it must not become a 640px ribbon. */
+.document .table-scroll--wide table {
+  min-width: 680px;
+}
+
+/* A real column plan for the reference tables, so a clause is not poured into
+   a 148px "Must not" box and an argument is not set as a ribbon. */
+.table--register table,
+.table--mapping table,
+.table--coverage table,
+.table--coverage-glance table,
+.table--checks table {
+  table-layout: fixed;
+}
+
+.table--register th:nth-child(1) {
+  width: 9%;
+}
+
+.table--register th:nth-child(2) {
+  width: 14%;
+}
+
+.table--register th:nth-child(3) {
+  width: 5%;
+}
+
+.table--register th:nth-child(4) {
+  width: 27%;
+}
+
+.table--register th:nth-child(5) {
+  width: 21%;
+}
+
+.table--register th:nth-child(6) {
+  width: 14%;
+}
+
+.table--register th:nth-child(7) {
+  width: 10%;
+}
+
+/* The four v2.2 attack jobs are one group in the register: a ruled subhead in
+   ink, not a tint and not a badge. It spans the table, so it reads at 390
+   inside the scroll region. */
+.table--register .register-group th {
+  position: static;
+  padding: 11px 10px 9px;
+  border-top: 1px solid var(--ink);
+  border-right: 0;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: left;
+  text-transform: none;
+}
+
+.table--mapping th:nth-child(1) {
+  width: 12%;
+}
+
+.table--mapping th:nth-child(2) {
+  width: 17%;
+}
+
+.table--mapping th:nth-child(3) {
+  width: 13%;
+}
+
+.table--mapping th:nth-child(4) {
+  width: 28%;
+}
+
+.table--mapping th:nth-child(5) {
+  width: 15%;
+}
+
+.table--mapping th:nth-child(6) {
+  width: 15%;
+}
+
+.table--coverage th:nth-child(1) {
+  width: 24%;
+}
+
+.table--coverage th:nth-child(2) {
+  width: 8%;
+}
+
+.table--coverage th:nth-child(3) {
+  width: 22%;
+}
+
+.table--coverage th:nth-child(4) {
+  width: 22%;
+}
+
+.table--coverage th:nth-child(5) {
+  width: 24%;
+}
+
+/* The two four-column argument tables. Their last column carries the sentence
+   doing the work, so it takes the width the ribbon used to waste. */
+.table--coverage-glance th:nth-child(1) {
+  width: 22%;
+}
+
+.table--coverage-glance th:nth-child(2) {
+  width: 10%;
+}
+
+.table--coverage-glance th:nth-child(3) {
+  width: 26%;
+}
+
+.table--coverage-glance th:nth-child(4) {
+  width: 42%;
+}
+
+.table--checks th:nth-child(1) {
+  width: 22%;
+}
+
+.table--checks th:nth-child(2) {
+  width: 8%;
+}
+
+.table--checks th:nth-child(3) {
+  width: 8%;
+}
+
+.table--checks th:nth-child(4) {
+  width: 62%;
+}
+
+.table-scroll th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 10px 12px;
+  border-right: 1px solid rgba(232, 226, 210, 0.22);
+  background: var(--ink);
+  color: var(--stock);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-align: left;
+  text-transform: uppercase;
+  vertical-align: bottom;
+}
+
+.table--register th,
+.table--mapping th,
+.table--coverage th,
+.table--coverage-glance th,
+.table--checks th {
+  padding: 9px 10px;
+}
+
+.table-scroll th:last-child {
+  border-right: 0;
+}
+
+.table-scroll td {
+  padding: 11px 12px;
+  border-right: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+  vertical-align: top;
+}
+
+.table--register td,
+.table--mapping td,
+.table--coverage td,
+.table--coverage-glance td,
+.table--checks td {
+  padding: 9px 10px;
+  overflow-wrap: break-word;
+}
+
+/* The id self-link is a jump target, so it gets a 24×24 hit area without
+   changing type: 8px of padding cancelled by an 8px negative margin, which
+   keeps the row's line rhythm and stays inside the cell's own padding. */
+.table-scroll .row-id {
+  display: inline-block;
+  margin: -8px;
+  padding: 8px;
+  text-decoration-color: var(--hair);
+  white-space: nowrap;
+}
+
+.table-scroll td:last-child {
+  border-right: 0;
+}
+
+.table-scroll tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table-scroll td em {
+  color: var(--mute);
+}
+
+/* Every document ends with its own citation: a ruled line, one selectable
+   string, no copy button and no script. */
+.citation {
+  max-width: var(--measure);
+  margin: 56px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink);
+  scroll-margin-top: 24px;
+}
+
+.citation-label {
+  margin: 0 0 8px;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.citation-line {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+  user-select: all;
+}
+
+/* A date or a URL is one string a reader copies; never break inside it. */
+.citation-line time,
+.citation-url {
+  white-space: nowrap;
+}
+
+.doc-end {
+  margin: 56px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--hair);
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Not found ---------------------------------------------------------------- */
+
+.not-found {
+  max-width: 62ch;
+  padding: clamp(64px, 10vw, 128px) 0 clamp(72px, 12vw, 144px);
+}
+
+.not-found h1 {
+  max-width: 20ch;
+  margin: 0 0 20px;
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.not-found-code {
+  display: block;
+  margin: 0 0 14px;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+.not-found p {
+  max-width: 58ch;
+  margin: 0 0 1.1em;
+}
+
+.not-found-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 30px;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Colophon ----------------------------------------------------------------- */
+
+.colophon {
+  flex-shrink: 0;
+  margin-top: 64px;
+  border-top: 3px double var(--ink);
+}
+
+.colophon-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 14px 64px;
+  width: 100%;
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: 28px 32px 42px;
+}
+
+.colophon p {
+  margin: 0;
+}
+
+.colophon-wordmark {
+  margin-bottom: 8px;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.colophon-split {
+  max-width: 42ch;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.colophon-claims,
+.colophon-status,
+.colophon-licence,
+.colophon-version,
+.colophon-links {
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+.colophon-claims,
+.colophon-status {
+  margin-bottom: 8px;
+  max-width: 66ch;
+}
+
+.colophon-licence {
+  margin-bottom: 8px;
+}
+
+.colophon-version {
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Mid-width pages: the rail stays, and the column widens enough for the wide
+   tables to fold out instead of scrolling inside the reading measure. */
+@media (min-width: 1040px) and (max-width: 1359px) {
+  .doc-shell {
+    grid-template-columns: 220px minmax(0, 680px);
+    max-width: 1028px;
+  }
+
+  .document > p,
+  .document > ul,
+  .document > ol,
+  .document > blockquote,
+  .document > pre,
+  .document > h2,
+  .document > h3,
+  .document > .doc-end,
+  .document > .doc-cite,
+  .document > .doc-meta-line,
+  .document > .doc-contents {
+    max-width: var(--measure);
+  }
+
+  .document .table-scroll {
+    max-width: var(--measure);
+  }
+
+  .document .table-scroll--wide {
+    max-width: none;
+  }
+
+  .table-scroll {
+    overflow-x: visible;
+  }
+}
+
+/* Wide pages: the article column widens so a reference table folds out past
+   the reading measure, and the right margin carries the dated citation.
+   Prose keeps its 56ch measure; the reading column never shrinks. */
+@media (min-width: 1360px) {
+  /* The right margin carries the dated line from here up; the rail keeps only
+     what the margin does not (Part of, Source), so the record prints twice. */
+  .doc-meta-time {
+    display: none;
+  }
+
+  :root {
+    --frame: 1400px;
+  }
+
+  .doc-shell {
+    grid-template-columns: 180px minmax(0, 1fr) 180px;
+    gap: 40px;
+    max-width: 1400px;
+  }
+
+  .doc-shell::before {
+    left: 212px;
+  }
+
+  /* The margin is a column, not a floating note: a hairline separates it from
+     the fold-out tables that stop short of it. */
+  .doc-shell::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 212px;
+    bottom: 0;
+    width: 1px;
+    background: var(--hair);
+  }
+
+  .document > p,
+  .document > ul,
+  .document > ol,
+  .document > blockquote,
+  .document > pre,
+  .document > h2,
+  .document > h3,
+  .document > .doc-end,
+  .document > .doc-cite,
+  .document > .doc-meta-line,
+  .document > .doc-contents {
+    max-width: var(--measure);
+  }
+
+  /* A two- or three-column table stays on the reading measure; only the wide
+     reference tables fold out into the article column. */
+  .document .table-scroll {
+    max-width: var(--measure);
+  }
+
+  .document .table-scroll--wide {
+    max-width: none;
+  }
+
+  .margin {
+    display: block;
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    padding: 44px 0 40px 12px;
+  }
+
+  /* The wide tables fit this column, so the wrapper is not a scrollport and
+     `thead th { position: sticky }` can hold the header against the viewport
+     while the job register scrolls. */
+  .table-scroll {
+    overflow-x: visible;
+  }
+}
+
+/* Small screens ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+  /* The phone prints the dated line under the title already; the kicker is the
+     same line a second time, 300px later. */
+  .document .doc-kicker {
+    display: none;
+  }
+
+  .masthead-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 24px 14px;
+  }
+
+  .running-head {
+    gap: 6px 24px;
+    padding: 8px 24px 10px;
+  }
+
+  .front,
+  .doc-shell {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .title-page {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .edition {
+    max-width: 360px;
+  }
+
+  .doc-shell {
+    display: block;
+    max-width: var(--measure);
+  }
+
+  .doc-shell::before {
+    display: none;
+  }
+
+  /* A document begins with its title on a narrow screen. The rail is removed;
+     its contents return under the title as a native disclosure, and the dated
+     line stays with the reader instead of moving to the footer. */
+  .rail {
+    display: none;
+  }
+
+  .doc-meta-line {
+    display: block;
+  }
+
+  .doc-contents {
+    display: block;
+  }
+
+  /* The small mono links get their 24px from block padding, not bigger type. */
+  .doc-cite a,
+  .doc-meta-line a,
+  .doc-end a,
+  .colophon-links a,
+  .not-found-links a,
+  .scope-link a {
+    display: inline-block;
+    padding-block: 4px;
+  }
+
+  .document {
+    padding-top: 36px;
+  }
+
+  .colophon-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding: 26px 24px 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .masthead-inner {
+    padding: 16px 18px 12px;
+  }
+
+  .wordmark {
+    gap: 9px;
+  }
+
+  .wordmark-name {
+    font-size: 1.2rem;
+  }
+
+  .site-nav {
+    gap: 4px 16px;
+  }
+
+  .site-nav a {
+    font-size: 0.6875rem;
+  }
+
+  .running-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+    padding: 8px 18px 10px;
+    font-size: 0.6875rem;
+  }
+
+  .front,
+  .doc-shell {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .title-page {
+    padding-top: 48px;
+    padding-bottom: 36px;
+    border-bottom: 0;
+  }
+
+  .title-block h1 {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+  }
+
+  .contents h2,
+  .scope-note h2,
+  .cite h2 {
+    margin-top: 44px;
+  }
+
+  .contents-table thead {
+    display: none;
+  }
+
+  .contents-table,
+  .contents-table tbody,
+  .contents-table tr,
+  .contents-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .contents-table tr {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .contents-table td {
+    width: auto;
+    padding: 0;
+    border: 0;
+    text-align: left;
+  }
+
+  /* The base 30% first-column width would otherwise survive display:block
+     and wrap a document title in a ~106px ribbon. */
+  .contents-table td:first-child {
+    width: auto;
+  }
+
+  .contents-table td:first-child a {
+    font-size: 1.18rem;
+  }
+
+  /* Only two columns carry the index now: the description wraps under the
+     title with no width, alignment or `nowrap` borrowed from the removed Read
+     cell. */
+  .contents-table td:nth-child(2) {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+  }
+
+  .document h1 {
+    font-size: clamp(2.1rem, 9.6vw, 2.8rem);
+  }
+
+  .document h2 {
+    margin-top: 44px;
+  }
+
+  .document .table-scroll--wide table {
+    min-width: 640px;
+    font-size: 0.84375rem;
+  }
+
+  /* A 34-character check id is wider than the phone's 354px column. Allow the
+     break visually (the text itself is untouched, so copy still returns one
+     string) rather than turning a three-column table into a scrollport with no
+     cue, which would promise an interaction the reader cannot see. */
+  .table-scroll code {
+    overflow-wrap: anywhere;
+  }
+
+  /* At 390 the register is a scroll region; give the scenario name the room
+     it needs and let the gate tokens break. */
+  .table--register th:nth-child(2) {
+    width: 16%;
+  }
+
+  .table--register th:nth-child(3) {
+    width: 7%;
+  }
+
+  .table--register th:nth-child(4) {
+    width: 25%;
+  }
+
+  .table--register th:nth-child(6) {
+    width: 13%;
+  }
+
+  .table--register th:nth-child(7) {
+    width: 9%;
+  }
+
+  /* At the phone width the register is a catalogue, not a matrix. Seven
+     columns in 676px can never show Must beside Must not, so each job becomes
+     one entry with its own labels: the head is hidden and every cell prints
+     the column it came from. The table keeps its semantics; only the display
+     changes, and the scroll cue goes with the scroll. */
+  .document .table-scroll--wide.table--register table,
+  .table--register table {
+    min-width: 0;
+    table-layout: auto;
+    font-size: 0.9375rem;
+  }
+
+  .table--register thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .table--register tbody,
+  .table--register tr,
+  .table--register td {
+    display: block;
+  }
+
+  .table--register tr {
+    padding: 14px 0 16px;
+  }
+
+  .table--register tr + tr {
+    border-top: 1px solid var(--hair);
+  }
+
+  /* Sev is one character wide; a label above it costs a whole line per job. */
+  .table--register td:nth-child(3)::before {
+    display: inline;
+    margin-right: 7px;
+  }
+
+  .table--register td {
+    padding: 3px 0;
+    border: 0;
+  }
+
+  .table--register td::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--mute);
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+
+  /* The id and the scenario name carry the entry; their labels would only
+     repeat what the value already says. */
+  .table--register td:first-child::before,
+  .table--register td:nth-child(2)::before {
+    display: none;
+  }
+
+  .table--register td:first-child {
+    padding-bottom: 0;
+  }
+
+  .table--register td:nth-child(2) {
+    padding-top: 0;
+    font-family: var(--display);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .table--register .register-group th {
+    padding: 14px 0 8px;
+  }
+
+  /* The group draws its own two rules; a hairline on either side of them
+     reads as a doubled line. */
+  .table--register tr.register-group,
+  .table--register .register-group + tr {
+    border-top: 0;
+  }
+
+  .table--register .register-group + tr {
+    padding-top: 8px;
+  }
+
+  .table-hint--register {
+    display: none;
+  }
+
+  .table-scroll {
+    margin-right: -18px;
+    margin-left: -18px;
+    padding-left: 18px;
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .document .table-scroll {
+    padding-right: 18px;
+  }
+
+  .doc-end {
+    font-size: 0.6875rem;
+  }
+
+  /* The label and a URL cannot share a 354px line; stack them. */
+  .cite-url-label {
+    display: block;
+    min-width: 0;
+    margin-bottom: 2px;
+  }
+
+  .not-found {
+    padding-top: 56px;
+    padding-bottom: 64px;
+  }
+
+  .colophon {
+    margin-top: 48px;
+  }
+}
+
+/* Print: the rulebook on paper -------------------------------------------- */
+
+@page {
+  margin: 18mm 16mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 10.5pt;
+  }
+
+  .skip,
+  .site-nav,
+  .rail,
+  .margin,
+  .doc-contents,
+  .doc-shell::before,
+  .doc-shell::after,
+  .doc-end,
+  .doc-cite,
+  .table-hint,
+  .colophon-links {
+    display: none;
+  }
+
+  .masthead {
+    border-color: #000;
+  }
+
+  .masthead-inner,
+  .running-head,
+  .front,
+  .doc-shell,
+  .colophon-inner {
+    max-width: none;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .doc-shell {
+    display: block;
+    max-width: none;
+  }
+
+  .document {
+    padding-top: 18pt;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .table-scroll {
+    overflow: visible;
+  }
+
+  .document .table-scroll table {
+    min-width: 0;
+  }
+
+  /* Seven columns on A4: at 10.5pt the anchor column broke words in half
+     ("Stayntou/ch"). A point size smaller fits the column without breaking a
+     word, and paper has no scroll to hide the overflow. */
+  .document .table-scroll--wide table {
+    font-size: 8pt;
+  }
+
+  /* The head repeats on every page of a long register; a rule, a row or a
+     quote never splits across a page break. */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  blockquote,
+  .citation {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  .table-scroll th {
+    background: #000;
+    color: #fff;
+  }
+
+  .colophon {
+    border-top-color: #000;
+    page-break-inside: avoid;
+  }
+}

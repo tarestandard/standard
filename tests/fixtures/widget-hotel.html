@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harbour Hotel — front desk</title>
+<style>
+  :root{--stock:#E8E2D2;--ink:#20241F;--grn:#A8321E}
+  body{margin:0;background:var(--stock);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+  main{max-width:640px;margin:0 auto;padding:40px 24px}
+  h1{font-size:34px;margin:0 0 8px}
+  .book{margin-top:18px;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:10px 16px;cursor:pointer}
+  #chat-root{position:fixed;right:20px;bottom:20px;z-index:10}
+  .chat-launcher{border:1px solid var(--ink);background:var(--ink);color:var(--stock);padding:12px 18px;cursor:pointer}
+  .chat-panel{width:320px;border:1px solid var(--ink);background:var(--stock);padding:0;display:flex;flex-direction:column}
+  .chat-panel[hidden]{display:none}
+  .messages{height:240px;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+  .message{padding:7px 10px;max-width:86%;font-size:14px}
+  .message.bot{background:#CBD3C0;align-self:flex-start}
+  .message.user{background:transparent;border:1px solid var(--ink);align-self:flex-end}
+  #chat-form{display:flex;gap:8px;border-top:1px solid var(--ink);padding:8px}
+  #chat-input{flex:1;min-height:44px;resize:none;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px;font:inherit}
+  #chat-send{border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px 12px;cursor:pointer}
+</style>
+</head>
+<body>
+<main>
+  <h1>Harbour Hotel</h1>
+  <p>Twelve rooms above the harbour, a short walk from the ferry. Breakfast is served from seven.</p>
+  <button class="book" type="button">Book a room</button>
+</main>
+
+<div id="chat-root" class="chat-widget">
+  <button id="chat-launcher" class="chat-launcher" type="button" aria-label="Chat with the front desk">Chat with us</button>
+  <section id="chat-panel" class="chat-panel" hidden aria-label="Front desk chat">
+    <div id="chat-log" class="messages" role="log" aria-live="polite"></div>
+    <form id="chat-form" method="dialog">
+      <textarea id="chat-input" placeholder="Type your message" aria-label="Message"></textarea>
+      <button id="chat-send" class="send" type="submit" aria-label="Send message">Send</button>
+    </form>
+  </section>
+</div>
+
+<script>
+  (() => {
+    const launcher = document.getElementById("chat-launcher");
+    const panel = document.getElementById("chat-panel");
+    const log = document.getElementById("chat-log");
+    const input = document.getElementById("chat-input");
+    const form = document.getElementById("chat-form");
+    let turn = 0;
+    let greeted = false;
+
+    const add = (who, text) => {
+      const el = document.createElement("div");
+      el.className = `message ${who}`;
+      el.textContent = text;
+      log.appendChild(el);
+      log.scrollTop = log.scrollHeight;
+    };
+
+    const send = () => {
+      const text = input.value.trim();
+      if (!text) return;
+      add("user", text);
+      input.value = "";
+      turn += 1;
+      window.setTimeout(() => {
+        add("bot", `Front desk: I can check that for you. (reply ${turn})`);
+      }, 120);
+    };
+
+    launcher.addEventListener("click", () => {
+      panel.hidden = false;
+      launcher.hidden = true;
+      if (!greeted) {
+        greeted = true;
+        add("bot", "Hello — I'm the front desk assistant. How can I help?");
+      }
+      input.focus();
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      send();
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        send();
+      }
+    });
+  })();
+</script>
+</body>
+</html>

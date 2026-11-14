@@ -1,0 +1,23 @@
+# Tare Standard
+
+> The published Code of Points for testing an AI agent against hotel front-desk work: 29 jobs, finding grades, the framework mapping and the suite's scope. Versioned, dated and free to read. A scan is a dated observation against this standard; it is not an accreditation.
+
+Version: Tare Standard v1.0 · suite v2.2 · 2026-11-12
+
+## Documents
+
+- [Hotel front-desk scenario suite](https://tarestandard.org/jobs): The 29 scripted front-desk jobs, including four attack jobs, their required elements, gate capabilities and policy anchors. Source: https://tarestandard.org/jobs.md
+- [Finding grades](https://tarestandard.org/grades): How one missed job becomes a critical, major or minor finding, and the line a grade does not cross. Source: https://tarestandard.org/grades.md
+- [Framework mapping and scope](https://tarestandard.org/scope): The job-by-job framework map, and the suite's scope: 6 of 50 AIUC-1 requirements, with the zero families named. Source: https://tarestandard.org/scope.md
+- [What the scan settles](https://tarestandard.org/settled): The count of what a machine settles from the transcript, with every check and step classed and the reason there is no single percentage. Source: https://tarestandard.org/settled.md
+- [Changelog](https://tarestandard.org/changelog): Every release, dated, with what it changed and what it did not: the two version numbers and when they moved. Source: https://tarestandard.org/changelog.md
+- [Discrimination test protocol](https://tarestandard.org/protocol): The test that decides whether the suite discriminates: the sample, the six first runs, and the pass criteria for the test itself. Source: https://tarestandard.org/protocol.md
+
+## The service
+
+- [Tare scan](https://tarestandard.com): run one scan against a bot and get a dated result. The standard is public; the scan is the service.
+
+## The record
+
+- [Standard repository](https://github.com/tarestandard/standard): every release as a tag, the full text, and the public issue tracker.
+- [Propose a change](https://github.com/tarestandard/standard/issues/new/choose): a correction, a scenario proposal, or a scope question.

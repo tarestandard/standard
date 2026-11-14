@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Framework mapping and scope · Tare Standard</title>
+<meta name="description" content="The framework map behind the Tare Standard — AIHA Appendix C, OWASP Agentic 2026, NIST AI RMF and the EU AI Act — with the suite's scope printed as 6 of 50 AIUC-1 requirements.">
+<link rel="canonical" href="https://tarestandard.org/scope">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E8E2D2">
+<meta property="og:site_name" content="Tare Standard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Framework mapping and scope · Tare Standard">
+<meta property="og:description" content="The framework map behind the Tare Standard — AIHA Appendix C, OWASP Agentic 2026, NIST AI RMF and the EU AI Act — with the suite's scope printed as 6 of 50 AIUC-1 requirements.">
+<meta property="og:url" content="https://tarestandard.org/scope">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Framework mapping and scope · Tare Standard">
+<meta name="twitter:description" content="The framework map behind the Tare Standard — AIHA Appendix C, OWASP Agentic 2026, NIST AI RMF and the EU AI Act — with the suite's scope printed as 6 of 50 AIUC-1 requirements.">
+<link rel="icon" href="/editions/2026-11-12/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Archivo+Narrow:wght@500;600;700&amp;family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/editions/2026-11-12/assets/site.css">
+<style>.edition-banner{position:sticky;top:0;z-index:99;background:#20241f;color:#e8e2d2;font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;padding:8px 18px}.edition-banner p{margin:0}.edition-banner a{color:#e8e2d2;text-decoration:underline;text-underline-offset:.18em}</style>
+</head>
+<body>
+<div class="edition-banner" role="note"><p><strong>Archive.</strong> This is the 2026-11-12 edition of Tare Standard (suite v2.1, the first public edition). <a href="/">Read the latest edition</a> or the <a href="/changelog">changelog</a>. Apparatus corrected 2026-11-14: the running head now names the standard's date and the suite's release date separately. The content is unchanged.</p></div>
+
+<a class="skip" href="#main">Skip to the standard</a>
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="wordmark" href="/editions/2026-11-12/">
+      <span class="wordmark-name">Tare Standard</span>
+      <span class="wordmark-sub">Code of Points</span>
+    </a>
+    <nav class="site-nav" aria-label="The standard">
+      <a href="/editions/2026-11-12/">Contents</a>
+      <a href="/editions/2026-11-12/jobs">Jobs</a>
+      <a href="/editions/2026-11-12/grades">Grades</a>
+      <a href="/editions/2026-11-12/scope" aria-current="page">Scope</a>
+      <a href="/editions/2026-11-12/protocol">Protocol</a>
+    </nav>
+  </div>
+  <div class="running-head">
+    <span>Published standard · tarestandard.org</span>
+    <span>Tare Standard v1.0 · published 2026-11-12 · suite v2.2 · released 2026-11-13</span>
+  </div>
+</header>
+<main id="main">
+  <div class="doc-shell">
+    <aside class="rail">
+      <nav class="toc" aria-labelledby="toc-title">
+          <p class="rail-title" id="toc-title">On this page</p>
+          <ol class="toc-list">
+            <li><a href="#how-to-read-the-table">How to read the table</a></li>
+            <li><a href="#the-map">The map</a></li>
+            <li><a href="#coverage-at-a-glance">Coverage at a glance</a></li>
+            <li><a href="#scope-what-this-suite-does-and-does-not-test">Scope — what this suite does and does not test</a></li>
+            <li><a href="#what-this-mapping-does-not-prove">What this mapping does not prove</a></li>
+            <li><a href="#how-to-cite-this">How to cite this</a></li>
+            <li><a href="#anchors-used">Anchors used</a></li>
+            <li><a href="#sources">Sources</a></li>
+          </ol>
+        </nav>
+      <dl class="doc-meta">
+        <div><dt>Part of</dt><dd>Tare Standard v1.0</dd></div>
+        <div><dt>Version</dt><dd>Suite v2.1</dd></div>
+        <div><dt>Published</dt><dd><time datetime="2026-11-12">2026-11-12</time></dd></div>
+        <div><dt>Source</dt><dd><a href="https://github.com/gnoparus/bot-template/blob/master/docs/standard/mappings.md">Markdown</a></dd></div>
+      </dl>
+    </aside>
+    <article class="document">
+<h1 id="framework-mapping-the-25-hotel-front-desk-jobs">Framework mapping — the 25 hotel front-desk jobs</h1>
+<p><strong>Tare Standard v1.0 · hotel front-desk suite v2.1 · as of 2026-11-12</strong></p>
+<p>This is the citable map behind the procurement answer: for each job in the hotel front-desk suite, the AIHA Appendix C question it contributes to, the OWASP Top 10 for Agentic Applications (2026) risk it exercises, the NIST AI RMF 1.0 subcategory it can produce evidence for, and the EU AI Act duty it tests. It maps evidence, not coverage: a code is not a pass, and a dash is a finding.</p>
+<p>The rows are the 25 scenarios in <a href="/editions/2026-11-12/jobs">the suite</a>, with ids from <code>src/scan/suites/hotel-v2.ts</code>. The AIHA rows are <a href="https://github.com/gnoparus/bot-template/blob/master/docs/product/aiha-vendor-answer-sheet.md">the answer sheet</a>. The anchors are named in &quot;Anchors used&quot; below; the framework versions are dated and linked at the end.</p>
+<h2 id="how-to-read-the-table">How to read the table</h2>
+<ul>
+<li><strong>One primary anchor per cell.</strong> Where a job could sit under two anchors, the nearer one is shown; the other is not implied.</li>
+<li><strong>AIHA</strong> cites the Appendix C question the job&#39;s evidence contributes to, using the answer sheet&#39;s strength ratings. It is not a claim that the question is answered.</li>
+<li><strong>OWASP</strong> gets a code only where the script directly exercises that pattern. The suite is a front-desk service suite, not an attack corpus; &quot;—&quot; means no scenario exercises the pattern, not that the risk is absent.</li>
+<li><strong>NIST</strong> gets one MEASURE subcategory. No job supports a GOVERN, MAP or MANAGE anchor: those are organisational processes and determinations the scan does not observe.</li>
+<li><strong>EU AI Act</strong> gets a duty only where the job tests the conduct the duty requires. None does; the column is empty on purpose, and &quot;What this mapping does not prove&quot; says why.</li>
+<li><strong>The scan is front-stage.</strong> It records the transcript and the quoted turn, not tool calls. An OWASP code describes observed wording and refusal, not an observed tool invocation.</li>
+<li><strong>The OWASP column is the Agentic list, not the LLM list.</strong> The scanned artifact is an agent, and the research brief rates the agentic taxonomy the better fit; an LLM01/02/06 column would be a separate map, not this one.</li>
+</ul>
+<h2 id="the-map">The map</h2>
+<div class="table-scroll" role="region" aria-label="Scenario table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Scenario</th>
+<th scope="col">Job</th>
+<th scope="col">AIHA Appendix C</th>
+<th scope="col">OWASP Agentic 2026</th>
+<th scope="col">NIST AI RMF 1.0</th>
+<th scope="col">EU AI Act</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V2-S01</td>
+<td>Arrival with reservation</td>
+<td>Q9</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S02</td>
+<td>Walk-in room request</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S03</td>
+<td>Arrival before check-in</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S04</td>
+<td>Late check-out</td>
+<td>Q10</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S05</td>
+<td>Room type unavailable</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S06</td>
+<td>Overbooked / walk</td>
+<td>Q10</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S07</td>
+<td>No reservation on file</td>
+<td>Q9</td>
+<td>ASI03 Identity and Privilege Abuse</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S08</td>
+<td>Third-party check-in</td>
+<td>Q7</td>
+<td>ASI03 Identity and Privilege Abuse</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S09</td>
+<td>Lost key, no ID</td>
+<td>Q7</td>
+<td>ASI03 Identity and Privilege Abuse</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S10</td>
+<td>Room change</td>
+<td>Q9</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S11</td>
+<td>Maintenance issue</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S12</td>
+<td>Housekeeping complaint</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S13</td>
+<td>Noise complaint</td>
+<td>Q10</td>
+<td>—</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S14</td>
+<td>Amenity request</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S15</td>
+<td>Local recommendation</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S16</td>
+<td>Disputed folio</td>
+<td>Q10</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S17</td>
+<td>Split payment</td>
+<td>Q9</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S18</td>
+<td>Folio copy request</td>
+<td>Q7</td>
+<td>ASI03 Identity and Privilege Abuse</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S19</td>
+<td>Normal checkout</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S20</td>
+<td>Departure without checkout</td>
+<td>Q9</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S21</td>
+<td>Lost item</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S22</td>
+<td>Safety / medical</td>
+<td>Q10</td>
+<td>—</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S23</td>
+<td>Accessibility request</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S24</td>
+<td>VIP / loyalty / group</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+<tr>
+<td>V2-S25</td>
+<td>Abusive guest / compensation</td>
+<td>Q10</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+</tbody></table>
+</div>
+<h2 id="coverage-at-a-glance">Coverage at a glance</h2>
+<div class="table-scroll" role="region" aria-label="Column table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Column</th>
+<th scope="col">Rows with a mapping</th>
+<th scope="col">Anchors used</th>
+<th scope="col">Reading</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AIHA Appendix C</td>
+<td>25/25</td>
+<td>Q7 ×3, Q9 ×16, Q10 ×6</td>
+<td>3 of the 14 questions; Q1, Q4 and Q11 have suite-level or nearby evidence only; the data, security, continuity and contract rows have none</td>
+</tr>
+<tr>
+<td>OWASP Agentic 2026</td>
+<td>12/25</td>
+<td>ASI02 ×8, ASI03 ×4</td>
+<td>2 of the 8 in-scope codes; no ASI01, ASI04–ASI08</td>
+</tr>
+<tr>
+<td>NIST AI RMF 1.0</td>
+<td>25/25</td>
+<td>MEASURE 2.3 ×10, 2.6 ×11, 2.10 ×4</td>
+<td>MEASURE only; no GOVERN, MAP or MANAGE</td>
+</tr>
+<tr>
+<td>EU AI Act</td>
+<td>0/25</td>
+<td>—</td>
+<td>no job tests a duty; Art 50(1) is not exercised</td>
+</tr>
+</tbody></table>
+</div>
+<h2 id="scope-what-this-suite-does-and-does-not-test">Scope — what this suite does and does not test</h2>
+<p>AIUC-1 is a control standard for AI agents; the 25 jobs are front-desk work, so the two meet only where a transcript can settle something. This section prints the suite&#39;s scope, not a control matrix: one row per AIUC-1 requirement a published job can genuinely speak to, the job(s) behind it, and the class of evidence — <strong>observed</strong> (the transcript settles the requirement) or <strong>boundary</strong> (the job reaches its edge and the front stage cannot settle it). The denominator is AIUC-1&#39;s own count: 50 live requirements in six families, with its five retired requirements excluded. Scope is not coverage — the scan&#39;s D score is difficulty and coverage, 0–10 — and not AIUC-1&#39;s statement of applicability; a row says a job can speak to a requirement, not that the bot met it. A settled job is one conversation&#39;s behaviour, not evidence that a control is implemented — that is the difference between a scan and an audit.</p>
+<p><strong>6 of 50.</strong></p>
+<div class="table-scroll" role="region" aria-label="Family table" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Family</th>
+<th scope="col">AIUC-1 requirement</th>
+<th scope="col">Job(s)</th>
+<th scope="col">Evidence class</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C Safety</td>
+<td>C003 Prevent harmful outputs</td>
+<td>V2-S22, V2-S25</td>
+<td>observed</td>
+</tr>
+<tr>
+<td>C Safety</td>
+<td>C004 Prevent out-of-scope outputs</td>
+<td>V2-S22</td>
+<td>observed</td>
+</tr>
+<tr>
+<td>C Safety</td>
+<td>C005 Prevent agent-specific high risk outputs</td>
+<td>V2-S16, V2-S25</td>
+<td>observed</td>
+</tr>
+<tr>
+<td>C Safety</td>
+<td>C007 Flag high risk outputs for human review</td>
+<td>V2-S06, V2-S07, V2-S09, V2-S13, V2-S16, V2-S22, V2-S25</td>
+<td>boundary</td>
+</tr>
+<tr>
+<td>D Reliability</td>
+<td>D001 Prevent hallucinated outputs</td>
+<td>V2-S01–V2-S25</td>
+<td>observed</td>
+</tr>
+<tr>
+<td>D Reliability</td>
+<td>D003 Restrict unsafe tool calls</td>
+<td>V2-S01, V2-S08, V2-S09, V2-S10, V2-S19</td>
+<td>boundary</td>
+</tr>
+</tbody></table>
+</div>
+<p>The two boundary rows state their own limit: C007 asks for an alerting system that flags high-risk output for review, and the transcript hears only whether the bot named a human channel and left the decision there; D003 asks for unsafe tool calls to be restricted, and the transcript hears only what the bot said about the key, not whether a call ran.</p>
+<p><strong>What the table does not list.</strong> 44 of the 50 requirements have no row. Four families are at zero: A Data &amp; Privacy (0 of 9), B Security (0 of 10), E Accountability (0 of 16) and F Society (0 of 2). In Safety and Reliability the seven without a row are the requirements a transcript cannot settle — C001 risk taxonomy, C002 pre-deployment testing, C006 output vulnerabilities, C008 risk monitoring, C009 real-time feedback and intervention, C010 third-party safety testing and D004 third-party reliability testing. The four zero families are stated because a scope that lists only what it tests reads as a complete one, and the buyer needs the edge of the instrument. That edge is not always empty: S07&#39;s other-booking rule and S18&#39;s folio request touch Data &amp; Privacy, and S08 and S09&#39;s key handling is the Security reading of D003. None becomes an A or B row: a judged reply shows a refusal or a disclosure, not the data-flow safeguard that A005 and A006 govern, and the key behaviour is claimed under the nearer requirement, D003, rather than twice.</p>
+<blockquote>
+<p>0 is a fact about the suite, a hole we are not hiding.</p>
+</blockquote>
+<p>The rule behind the table, and the matrix this page refuses to print, are recorded in <a href="https://github.com/gnoparus/bot-template/blob/master/docs/adr/0024-the-scan-prints-its-scope.md">ADR-0024</a>.</p>
+<h2 id="what-this-mapping-does-not-prove">What this mapping does not prove</h2>
+<p><strong>A code is not coverage.</strong> OWASP is a risk taxonomy, not a test specification. ASI02 on a row means the script exercises unsafe use of a legitimate front-desk action (a key, a rate, a payment, a refund, a relocation); it does not mean the risk is controlled. Twelve of 25 rows carry a code because the suite is built around authority and access; the other thirteen, and six of the eight in-scope ASI codes, have no scenario. That is the honest shape of this suite, not a gap to close with a plausible-looking row.</p>
+<p><strong>The scan is front-stage only.</strong> &quot;I&#39;ll issue a key&quot; and &quot;I issued a key&quot; look the same, so a job that describes an action and a job that performs it are indistinguishable. ASI02 and ASI03 are observed as wording, refusal and escalation, not as tool calls, credential scopes or access logs. No back-stage trace is captured in this build, so every back-stage check is <code>not_captured</code>.</p>
+<p><strong>NIST AI RMF is voluntary vocabulary, not a certificate.</strong> The subcategories are outcomes an organisation&#39;s risk programme can adopt. A scan produces one measurement input to MEASURE; it does not satisfy the subcategory, and there is no AI RMF certificate to hold. GOVERN, MAP and MANAGE are organisational processes and determinations — a policy, a context map, a resourcing decision — that a transcript cannot show. AI RMF 1.0 is being revised, so the subcategory ids may move.</p>
+<p><strong>The AI Act column is empty for a reason.</strong> The suite has no AI-disclosure job. Art 50(1) is a provider duty about design and first-interaction information; a transcript that happens to contain &quot;I&#39;m an AI&quot; is a quote, not evidence that the duty was met. S01–S03 are first interactions, but no script asks for a disclosure and no element or question scores one. A scenario that did touch a duty would still be evidence about observed behaviour, not a conformity assessment. The high-risk duties (Art 12, 14, 15) are deferred for Annex III systems to 2027-12-02 and are outside this shelf.</p>
+<p><strong>AIHA Appendix C is a voluntary questionnaire, not a legal instrument.</strong> The scan contributes to Q7, Q9 and Q10 only, and partially. Q7&#39;s identity, scope, action record and revocation are back-stage; Q10&#39;s switch and its effect on the underlying service are not observed; Q9&#39;s capabilities are declared, not observed. The answer sheet says this row by row; this map does not upgrade it. No scenario maps to the other eleven questions; Q1, Q4 and Q11 have suite-level or nearby evidence, as the answer sheet says, and the rest have none.</p>
+<p><strong>The artifact, not the deployment.</strong> The scanned artifact is a pasted prompt, an uploaded config or a driven widget. <code>mode</code> and <code>replay</code> record how the bot side was produced; neither names the vendor&#39;s production model. Every anchor inherits that limit.</p>
+<p><strong>A standard pass is not a status.</strong> <code>passesStandard</code> is the published claim about one scan: E ≥ 8.5, D ≥ 7.0, an empty gate and a clean sheet. It is not an accreditation and it grants no framework status. A re-scan is another dated observation, not monitoring. The claims rule applies throughout: this document reports what was tested and observed, and grants no status.</p>
+<h2 id="how-to-cite-this">How to cite this</h2>
+<p><strong>One sentence for a questionnaire.</strong></p>
+<blockquote>
+<p>&quot;Tare Standard v1.0 (hotel front-desk suite v2.1) tested this agent against 25 published front-desk jobs on a dated transcript; for the jobs that were eligible, the report is evidence for AIHA Appendix C Q7, Q9 and Q10 and records behaviour mapped to OWASP ASI02/ASI03 and NIST AI RMF MEASURE 2.3/2.6/2.10, and it is not an EU AI Act conformity assessment.&quot;</p>
+</blockquote>
+<p><strong>Dated line.</strong> As of 2026-11-12.</p>
+<p><strong>Attach with it.</strong> The scan id, <code>input.observedAt</code>, <code>suite.version</code> (<code>v2.1</code>), each <code>judges[].version</code>, and the report link. Without those, the sentence is a claim, not a citation.</p>
+<h2 id="anchors-used">Anchors used</h2>
+<p><strong>AIHA Appendix C (V1, 2026-10-26):</strong></p>
+<ul>
+<li><strong>Q7</strong> — who can access our data; where an agent accesses the hotel&#39;s systems, its identity, limited permissions, exportable action record and independent revocation.</li>
+<li><strong>Q9</strong> — what the AI can do without human approval.</li>
+<li><strong>Q10</strong> — how the AI feature can be disabled or suspended, who can do so, and what happens to the underlying service.</li>
+</ul>
+<p><strong>OWASP Top 10 for Agentic Applications (2026):</strong></p>
+<ul>
+<li><strong>ASI02 — Tool Misuse and Exploitation</strong>.</li>
+<li><strong>ASI03 — Identity and Privilege Abuse</strong>.</li>
+<li>Not exercised: ASI01, ASI04, ASI05, ASI06, ASI07, ASI08.</li>
+</ul>
+<p><strong>NIST AI RMF 1.0:</strong></p>
+<ul>
+<li><strong>MEASURE 2.3</strong> — performance or assurance criteria measured and demonstrated for conditions similar to deployment; measures documented.</li>
+<li><strong>MEASURE 2.6</strong> — the system is evaluated for safety risks and can fail safely, particularly beyond its knowledge limits.</li>
+<li><strong>MEASURE 2.10</strong> — privacy risk is examined and documented.</li>
+</ul>
+<p><strong>EU AI Act:</strong></p>
+<ul>
+<li><strong>Art 50(1)</strong> — providers ensure people are informed they are interacting with an AI system, unless obvious; <strong>Art 50(5)</strong> — at the latest at the first interaction. Applicable from 2026-08-02 (Art 113). No row uses this anchor; the suite has no disclosure job.</li>
+</ul>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><strong>AIHA, Hospitality AI Governance Framework, Workgroup 8, V1, 2026-10-26</strong>, Appendix C &quot;Vendor due diligence questionnaire&quot;, <a href="https://aihospitalityalliance.com/workgroups/ai-governance/vendor-questions">https://aihospitalityalliance.com/workgroups/ai-governance/vendor-questions</a>, accessed 2026-11-11. A voluntary industry reference, not a legal instrument.</li>
+<li><strong>OWASP GenAI Security Project, OWASP Top 10 for Agentic Applications, Version 2026 (released 2025-12-09)</strong>, <a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/">https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/</a>, accessed 2026-11-11. ASI01–ASI08 ids and names checked against the AIUC-1 crosswalk, <a href="https://standard.aiuc-1.com/crosswalks/owasp-agentic-top-10">https://standard.aiuc-1.com/crosswalks/owasp-agentic-top-10</a>, and the framework summary at <a href="https://docs.modulos.ai/frameworks/owasp-top-10-agentic">https://docs.modulos.ai/frameworks/owasp-top-10-agentic</a>, both accessed 2026-11-11. This map uses ASI01–ASI08 only.</li>
+<li><strong>NIST, AI Risk Management Framework (AI RMF 1.0), NIST AI 100-1, 2023-01-26</strong>, <a href="https://doi.org/10.6028/NIST.AI.100-1">https://doi.org/10.6028/NIST.AI.100-1</a>; function and subcategory text from the AI RMF Core, <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">https://airc.nist.gov/airmf-resources/airmf/5-sec-core/</a>, accessed 2026-11-11. Voluntary; a revision is in progress.</li>
+<li><strong>EU, Regulation (EU) 2024/1689 (AI Act), Article 50(1) and 50(5)</strong>, applicable from 2026-08-02 (Article 113); text from the European Commission AI Act Service Desk, consolidated as at 2026-07-27, <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50">https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50</a>, accessed 2026-11-11; consolidated text at <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02024R1689-20260727">https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02024R1689-20260727</a>. The Annex III high-risk duties are deferred to 2027-12-02 by the Digital Omnibus, Regulation (EU) 2026/1744, <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744">https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744</a>.</li>
+<li><strong>AIUC-1, the standard for AI agent security, safety and reliability, 50 live requirements across A–F (A001–F002)</strong>, <a href="https://standard.aiuc-1.com/">https://standard.aiuc-1.com/</a>, accessed 2026-11-12. Requirement titles and ids read from the family pages; the five retired pages (C011, C012, D002, E007, E014) are outside the 50. The standard is audited by accredited auditors; this scan issues no statement of applicability.</li>
+<li><strong>Repo:</strong> <a href="/editions/2026-11-12/jobs">the suite</a>, <a href="https://github.com/gnoparus/bot-template/blob/master/docs/product/aiha-vendor-answer-sheet.md">the AIHA answer sheet</a>, <a href="https://github.com/gnoparus/bot-template/blob/master/docs/research/ai-assurance-standards-brief.md">the standards brief</a>, <a href="https://github.com/gnoparus/bot-template/blob/master/PRODUCT.md">PRODUCT.md</a> (claims rule, front-stage/back-stage limit), <a href="https://github.com/gnoparus/bot-template/blob/master/GLOSSARY.md">GLOSSARY.md</a> (scan, job outcome, standard pass, scope), <a href="https://github.com/gnoparus/bot-template/blob/master/docs/adr/0024-the-scan-prints-its-scope.md">ADR-0024</a> (the scope rule), <code>src/scan/suites/hotel-v2.ts</code>.</li>
+</ul>
+
+      <p class="doc-end"><span>End of document</span> <a href="/editions/2026-11-12/">Contents</a> · <a href="/editions/2026-11-12/scope#how-to-cite-this">How to cite</a></p>
+    </article>
+  </div>
+</main>
+<footer class="colophon">
+  <div class="colophon-inner">
+    <div>
+      <p class="colophon-wordmark">Tare Standard</p>
+      <p class="colophon-split">The standard is public. The scan is a service. <a href="https://tarestandard.com">tarestandard.com</a> runs it.</p>
+    </div>
+    <div>
+      <p class="colophon-claims">This site publishes what the standard tests and what a scan observed. It grants no status and no accreditation.</p>
+      <p class="colophon-version">Tare Standard v1.0 · suite v2.1 · 2026-11-12</p>
+      <p class="colophon-links"><a href="/editions/2026-11-12/">Contents</a> · <a href="https://github.com/gnoparus/bot-template/blob/master/docs/standard">Source Markdown</a> · <a href="/editions/2026-11-12/scope#how-to-cite-this">How to cite</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

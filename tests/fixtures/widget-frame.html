@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Harbour Hotel — widget in a frame</title>
+<style>
+  body{margin:0;background:#E8E2D2;color:#20241F;font:16px/1.5 system-ui,sans-serif}
+  main{max-width:640px;padding:40px 24px}
+  iframe{border:1px solid #20241F;width:380px;height:520px}
+</style>
+</head>
+<body>
+<!-- A widget that renders its launcher and its message box inside its own
+     frame, the way Botpress v0 does. The page around it has no chat markup at
+     all, so a page-only search finds nothing. -->
+<main>
+  <h1>Harbour Hotel</h1>
+  <p>Twelve rooms above the harbour.</p>
+  <iframe id="widget-frame" title="Front desk chat" src="./widget-hotel.html"></iframe>
+</main>
+</body>
+</html>
