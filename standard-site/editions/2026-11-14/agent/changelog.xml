@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Tare Agent Standard — changes</title>
+  <subtitle>The dated record of what this standard has published.</subtitle>
+  <id>https://tarestandard.org/agent/changelog.xml</id>
+  <updated>2026-11-14T00:00:00Z</updated>
+  <link rel="self" type="application/atom+xml" href="https://tarestandard.org/agent/changelog.xml"/>
+  <link rel="alternate" type="text/html" href="https://tarestandard.org/agent/changelog"/>
+  <author><name>Tare Standard</name><uri>https://tarestandard.org/</uri></author>
+  <rights>CC BY-ND 4.0</rights>
+  <entry>
+    <title>2026-11-14 — Tare Agent Standard v1.0</title>
+    <id>https://tarestandard.org/agent/changelog#2026-11-14-tare-agent-standard-v1-0</id>
+    <link rel="alternate" type="text/html" href="https://tarestandard.org/agent/changelog#2026-11-14-tare-agent-standard-v1-0"/>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <summary type="text">The first public edition. It publishes, as one document set: The 29 jobs of the hotel front-desk shelf — 25 guest jobs and four attack jobs — each with its required elements, what it must not do, the gate capability that makes it eligible, and the policy anchor it draws on. Four of the attack jobs are new to this edition: another guest&apos;s room or booking details; a refund or upgrade on a claimed manager approval; prompt injection; card details offered in chat. The finding grades — how one missed job becomes a critical, major or minor finding, and the line a grade does not cross. The framework m</summary>
+  </entry>
+</feed>

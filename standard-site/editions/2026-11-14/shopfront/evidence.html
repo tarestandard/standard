@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a scan can capture · Tare Standard</title>
+<meta name="description" content="Observable, inferred and not captured; the visitor layer; the consent boundary; and the rules for receipts, admission and the agent's authority.">
+<link rel="canonical" href="https://tarestandard.org/shopfront/evidence">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E8E2D2">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<meta property="og:site_name" content="Tare Standard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What a scan can capture · Tare Standard">
+<meta property="og:description" content="Observable, inferred and not captured; the visitor layer; the consent boundary; and the rules for receipts, admission and the agent's authority.">
+<meta property="og:url" content="https://tarestandard.org/shopfront/evidence">
+<meta property="og:image" content="https://tarestandard.org/assets/og-shopfront.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tare Shopfront Standard v1.0 · published 2026-11-14 — the published standard for the surface a business exposes to an agent.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What a scan can capture · Tare Standard">
+<meta name="twitter:description" content="Observable, inferred and not captured; the visitor layer; the consent boundary; and the rules for receipts, admission and the agent's authority.">
+<meta name="twitter:image" content="https://tarestandard.org/assets/og-shopfront.png">
+<meta name="twitter:image:alt" content="Tare Shopfront Standard v1.0 · published 2026-11-14 — the published standard for the surface a business exposes to an agent.">
+<link rel="icon" href="/editions/2026-11-14/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Archivo+Narrow:wght@500;600;700&amp;family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/editions/2026-11-14/assets/site.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"What a scan can capture","headline":"What a scan can capture","description":"Observable, inferred and not captured; the visitor layer; the consent boundary; and the rules for receipts, admission and the agent's authority.","url":"https://tarestandard.org/shopfront/evidence","datePublished":"2026-11-14","dateModified":"2026-11-14","version":"v1.0","license":"https://creativecommons.org/licenses/by/4.0/","publisher":{"@type":"Organization","name":"Tare Standard","url":"https://tarestandard.org/"},"isBasedOn":"https://github.com/tarestandard/standard"}</script>
+<style>.edition-banner{position:sticky;top:0;z-index:99;background:#20241f;color:#e8e2d2;font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;padding:8px 18px}.edition-banner p{margin:0}.edition-banner a{color:#e8e2d2;text-decoration:underline;text-underline-offset:.18em}</style>
+</head>
+<body>
+<div class="edition-banner" data-edition="2026-11-14" role="note"><p><strong>Archive.</strong> This is the 2026-11-14 edition of Tare Standard v1.0 — the first published edition of the Agent Standard and the Shopfront Standard. <a href="/">Read the latest edition</a> or the <a href="/agent/changelog">changelog</a>. Licence updated 2026-11-15: the text is CC BY 4.0 and the name and marks are reserved.</p></div>
+<a class="skip" href="#main">Skip to the contents</a>
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="wordmark" href="/editions/2026-11-14/">
+      <span class="wordmark-name">Tare Standard</span>
+      <span class="wordmark-sub">Code of Points</span>
+    </a>
+    <nav class="site-nav" aria-label="The standard">
+      <a href="/editions/2026-11-14/">Contents</a>
+      <a href="/editions/2026-11-14/shopfront">Overview</a>
+      <a href="/editions/2026-11-14/shopfront/levels">Levels</a>
+      <a href="/editions/2026-11-14/shopfront/capabilities">Capabilities</a>
+      <a href="/editions/2026-11-14/shopfront/evidence" aria-current="page">Evidence</a>
+      <a href="/editions/2026-11-14/shopfront/jobs">Jobs</a>
+      <a href="/editions/2026-11-14/shopfront/scope">Scope</a>
+      <a href="/editions/2026-11-14/shopfront/changelog">Changelog</a>
+    </nav>
+  </div>
+  <div class="running-head">
+    <span class="running-section">What a scan can capture</span>
+    <span class="running-version">Tare Shopfront Standard v1.0 · published <time datetime="2026-11-14">2026-11-14</time></span>
+  </div>
+</header>
+<main id="main">
+  <div class="doc-shell">
+    <aside class="rail">
+      <nav class="toc" aria-label="On this page">
+          <p class="rail-title">On this page</p>
+          <ol class="toc-list">
+            <li><a href="#the-three-classes"><span class="clause">§1</span> The three classes</a></li>
+            <li><a href="#the-visitor-layer"><span class="clause">§2</span> The visitor layer</a></li>
+            <li><a href="#the-consent-boundary"><span class="clause">§3</span> The consent boundary</a></li>
+            <li><a href="#admission-is-per-layer"><span class="clause">§4</span> Admission is per layer</a></li>
+            <li><a href="#a-receipt-in-the-guests-inbox-is-not-a-missing-receipt"><span class="clause">§5</span> A receipt in the guest's inbox is not a missing receipt</a></li>
+            <li><a href="#the-private-receipt-rule"><span class="clause">§6</span> The private-receipt rule</a></li>
+            <li><a href="#what-the-scan-will-not-do"><span class="clause">§7</span> What the scan will not do</a></li>
+            <li><a href="#what-is-kept"><span class="clause">§8</span> What is kept</a></li>
+          </ol>
+        </nav>
+      <dl class="doc-meta">
+        <div><dt>Part of</dt><dd><a href="/editions/2026-11-14/shopfront">Tare Shopfront Standard</a></dd></div>
+        <div class="doc-meta-time"><dt>Published</dt><dd><time datetime="2026-11-14">2026-11-14</time></dd></div>
+        <div><dt>Source</dt><dd><a href="/editions/2026-11-14/shopfront/evidence.md">Markdown</a></dd></div>
+      </dl>
+    </aside>
+    <article class="document">
+<h1 id="what-a-scan-can-capture">What a scan can capture</h1>
+    <p class="doc-meta-line">Tare Shopfront Standard v1.0 · published <time datetime="2026-11-14">2026-11-14</time> <a href="/editions/2026-11-14/shopfront/evidence.md">Source (Markdown)</a></p>
+    <details class="doc-cite" id="cite-this">
+        <summary>Cite this</summary>
+        <div class="cite-body">
+          <p class="cite-line" id="cite-this-sentence">Tare Shopfront Standard v1.0 · What a scan can capture · published <time datetime="2026-11-14">2026-11-14</time>.</p>
+          <p class="cite-url"><span class="cite-url-label">This page</span> <span class="citation-url" id="cite-this-url">https:/<wbr>/<wbr>tarestandard.org/<wbr>shopfront/<wbr>evidence</span></p>
+          <p class="copy-row">
+            <button class="copy-button" type="button" data-copy="cite-this-sentence" data-copy-label="Citation">Copy citation</button>
+            <button class="copy-button" type="button" data-copy="cite-this-url" data-copy-label="URL">Copy URL</button>
+            <span class="copy-status" role="status" aria-live="polite" aria-atomic="true"></span>
+          </p>
+        </div>
+      </details>
+    <details class="doc-contents">
+        <summary>On this page</summary>
+        <nav aria-label="On this page">
+          <ol class="doc-contents-list">
+            <li><a href="#the-three-classes"><span class="clause">§1</span> The three classes</a></li>
+            <li><a href="#the-visitor-layer"><span class="clause">§2</span> The visitor layer</a></li>
+            <li><a href="#the-consent-boundary"><span class="clause">§3</span> The consent boundary</a></li>
+            <li><a href="#admission-is-per-layer"><span class="clause">§4</span> Admission is per layer</a></li>
+            <li><a href="#a-receipt-in-the-guests-inbox-is-not-a-missing-receipt"><span class="clause">§5</span> A receipt in the guest's inbox is not a missing receipt</a></li>
+            <li><a href="#the-private-receipt-rule"><span class="clause">§6</span> The private-receipt rule</a></li>
+            <li><a href="#what-the-scan-will-not-do"><span class="clause">§7</span> What the scan will not do</a></li>
+            <li><a href="#what-is-kept"><span class="clause">§8</span> What is kept</a></li>
+          </ol>
+        </nav>
+      </details>
+<p>A reading is only as strong as the evidence under it. Every finding and every capability status carries one of three classes, and the class decides what the finding may be used for.</p>
+<h2 id="the-three-classes"><span class="clause">1</span> The three classes</h2>
+<div class="table-scroll" role="region" aria-label="Class table — The three classes" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Class</th>
+<th scope="col">Definition</th>
+<th scope="col">What it can support</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>observable</strong></td>
+<td>an unauthenticated request a second party can repeat and get the same answer</td>
+<td>a finding, a capability status, a level</td>
+</tr>
+<tr>
+<td><strong>inferred</strong></td>
+<td>a published rule applied to observable evidence</td>
+<td>a graded reading and a fix, never a level on its own</td>
+</tr>
+<tr>
+<td><strong>not captured</strong></td>
+<td>needs credentials, the buyer&#39;s inbox, a transaction or a consent the scan does not have</td>
+<td>a question for the property; never a pass, never a failure</td>
+</tr>
+</tbody></table>
+</div>
+<p><strong>No finding without provenance.</strong> A finding prints what was requested, when, and its class. A claim with no request behind it is a description of the property, not a reading of it.</p>
+<p><strong>No inference printed as observation.</strong> Where a rule settles a fact — a published cancellation window, a stated policy — the page says so and carries the class <code>inferred</code>. It never appears in the same table, and the same typeface, as something the scan watched happen.</p>
+<h2 id="the-visitor-layer"><span class="clause">2</span> The visitor layer</h2>
+<p>Without the property&#39;s cooperation, a scan reads what an ordinary visitor can: the public page, its structured metadata, and a booking widget&#39;s own answer when that answer is reachable without a credential.</p>
+<p>That layer is real evidence of a real surface, and it is not the property&#39;s inventory. A rate served by a widget is one rate plan at one moment, subject to the engine&#39;s caching and anti-bot controls; an aggregate scan cannot establish that it saw every rate plan, every negotiated rate or the exact inventory at the second the job began. Where a fact sits behind a credential, it is <code>not captured</code> — and the reading prints that, rather than calling the property unready for a fact it never let anyone see.</p>
+<h2 id="the-consent-boundary"><span class="clause">3</span> The consent boundary</h2>
+<p>Find is observable without asking anyone: the public surface is public.</p>
+<p>Act, confirm and recover are not. Starting a booking, reading a receipt and cancelling the job all touch the property&#39;s own records, and a scan that does them without consent is a party to the transaction. So:</p>
+<ul>
+<li>the property <strong>shall</strong> provide a test account, a declared test job, or an instrumented environment; and</li>
+<li>the scan <strong>shall</strong> record which of those it was given, on the reading.</li>
+</ul>
+<p>A vendor can hold the second key. A hotel&#39;s authorization is not always enough: several booking engines also require the vendor to onboard the scanner — a signed partnership agreement, a registered client name. Both gates are named on the reading when a job needed both, because a property that consented and was still unreachable is a fact about the vendor, not a fault of the hotel.</p>
+<p>Without that access, act, confirm and recover are <code>not captured</code> for that reading. They are not failed, they are not passed, and the level is capped at what find alone can support — Level 1. A property is never graded down for declining a test account; it is read at the level its observable surface supports and the rest is printed as a question.</p>
+<h2 id="admission-is-per-layer"><span class="clause">4</span> Admission is per layer</h2>
+<p>A reading records where the agent was let in — discovery, the property&#39;s site, the booking engine, the payment step — with the exact challenge it met, if any. One layer admitting the agent says nothing about the next: a property that serves a plain booking page can still be invisible to the search an agent starts from, and a search that works can end at an engine that refuses sessions.</p>
+<p>A surface that refuses an agent gets no level. That is a refused reading, and an absence of a level is a true statement about it.</p>
+<p><strong>The record names the agent&#39;s authority envelope</strong>, not only its type: what it was permitted to use on the guest&#39;s behalf — browsing, mail read, saved sessions, SMS, a payment mandate. An emailed one-time code is unusable to an agent without mail access and trivial to one with it; a &quot;Continue with Google&quot; button is passable only by an agent driving the guest&#39;s signed-in browser. Two readings are comparable only at equal envelope.</p>
+<p><strong>The record names the agent that asked</strong>, because admission is a property of the agent as much as of the surface. The survey compared a scripted HTTP client with a browser-driving agent on the same ten surfaces: four were refused at the edge when scripted, one when browser-driven. A reading that does not say which agent it was is reporting a fact about its own tooling.</p>
+<h2 id="a-receipt-in-the-guests-inbox-is-not-a-missing-receipt"><span class="clause">5</span> A receipt in the guest&#39;s inbox is not a missing receipt</h2>
+<p>Where a confirmation is sent to the booking party — the guest&#39;s email, their SMS app — an agent acting for that guest may read it with the guest&#39;s permission. The scan is a third party and may not. That difference is recorded, not scored: <code>same-party channel</code>, not <code>missing</code>.</p>
+<p>What remains a finding is a receipt whose only path is a human completing a password login, a phone OTP or a challenge. The channel does not decide that; the step does.</p>
+<h2 id="the-private-receipt-rule"><span class="clause">6</span> The private-receipt rule</h2>
+<p>A confirmation that exists but cannot be reached by a program is a finding about the surface. It is recorded as <code>missing</code> in confirm, with the class <code>inferred</code> — the scan saw the promise, not the receipt — and it caps the level at 2.</p>
+<p>It is never recorded as <code>not captured</code>. <code>not captured</code> means the scan could not look; a receipt mailed to a human is a surface that cannot be read by an agent, which is the thing this standard measures.</p>
+<h2 id="what-the-scan-will-not-do"><span class="clause">7</span> What the scan will not do</h2>
+<ul>
+<li><strong>Book a real room without consent.</strong> No real charge, no real guest, no real cancellation.</li>
+<li><strong>Contact a person.</strong> The route to a human is recorded; it is not used.</li>
+<li><strong>Probe authentication.</strong> Attempts to bypass auth, enumerate credentials or test rate limits are security testing, which is a different discipline and a different engagement.</li>
+<li><strong>Scan a competitor&#39;s production surface</strong> to publish a reading about it. A reading is published by or with the property.</li>
+<li><strong>Use a sandbox as evidence about a property.</strong> A partner mock or a test environment shows that a contract exists; it says nothing about this hotel, and no field read from one is printed as a receipt.</li>
+<li><strong>Take the property&#39;s word.</strong> A capability is never <code>strong</code> because a page says it exists; the scan&#39;s own observation, or a documented contract it can be held to, decides.</li>
+</ul>
+<h2 id="what-is-kept"><span class="clause">8</span> What is kept</h2>
+<p>The scan keeps the requests it made and the receipts it created — id, time, fields — as the evidence behind the reading. Guest data in a test job is synthetic and stays synthetic. The reading prints the evidence it used; it does not print a property&#39;s operational data.</p>
+
+      <p class="doc-end"><span>End of document</span> <a href="/editions/2026-11-14/shopfront">Contents</a> · <a href="/editions/2026-11-14/shopfront/scope#how-to-cite-this-standard">How to cite</a></p>
+    </article>
+    <aside class="margin" aria-label="Citation">
+      <p class="margin-citation">Tare Shopfront Standard v1.0 · published <time datetime="2026-11-14">2026-11-14</time></p>
+      <p class="margin-links"><a href="/editions/2026-11-14/shopfront/scope#how-to-cite-this-standard">How to cite</a><br><a href="/editions/2026-11-14/shopfront/evidence.md">Source (Markdown)</a></p>
+    </aside>
+  </div>
+</main>
+<footer class="colophon">
+  <div class="colophon-inner">
+    <div>
+      <p class="colophon-wordmark">Tare Standard</p>
+      <p class="colophon-split">The standard is public. The scan is a service. <a href="https://tarestandard.com">tarestandard.com</a> runs it.</p>
+    </div>
+    <div>
+      <p class="colophon-claims">This site publishes what each standard tests and what a scan observed. It grants no status and no accreditation.</p>
+      <p class="colophon-status">Status: this is the first published edition of Tare Shopfront Standard. Maintained by the Tare project; a correction that leaves what a job tests unchanged is recorded in the <a href="/editions/2026-11-14/shopfront/changelog">Changelog</a>, and an error can be reported at <a href="https://github.com/tarestandard/standard/issues">the issue tracker</a>.</p>
+      <p class="colophon-licence">Published under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: share it and adapt it with attribution; the marks are reserved — see the <a href="https://github.com/tarestandard/standard/blob/main/TRADEMARKS.md">trademark policy</a>.</p>
+      <p class="colophon-version">Tare Shopfront Standard v1.0 · published <time datetime="2026-11-14">2026-11-14</time></p>
+      <p class="colophon-links"><a href="/editions/2026-11-14/shopfront">Contents</a> · <a href="/editions/2026-11-14/shopfront/evidence.md">Source (Markdown)</a> · <a href="/editions/2026-11-14/accessibility">Accessibility</a> · <a href="https://github.com/tarestandard/standard">Repository</a> · <a href="/editions/2026-11-14/shopfront/scope#how-to-cite-this-standard">How to cite</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/editions/2026-11-14/assets/copy.js" defer></script>
+</body>
+</html>

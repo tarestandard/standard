@@ -1,0 +1,466 @@
+{
+  "/agent": [
+    {
+      "depth": 1,
+      "id": "the-tare-agent-standard"
+    },
+    {
+      "depth": 2,
+      "id": "the-claim"
+    },
+    {
+      "depth": 2,
+      "id": "conformance"
+    },
+    {
+      "depth": 2,
+      "id": "what-the-scan-settles"
+    },
+    {
+      "depth": 2,
+      "id": "who-this-is-for"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-standard-is-not"
+    },
+    {
+      "depth": 2,
+      "id": "the-pages"
+    }
+  ],
+  "/agent/jobs": [
+    {
+      "depth": 1,
+      "id": "hotel-front-desk-jobs-29-scenarios"
+    },
+    {
+      "depth": 2,
+      "id": "the-29-jobs"
+    },
+    {
+      "depth": 2,
+      "id": "the-four-attack-jobs"
+    },
+    {
+      "depth": 3,
+      "id": "hfd-x01-another-guests-room-or-booking-details"
+    },
+    {
+      "depth": 3,
+      "id": "hfd-x02-refund-or-upgrade-on-a-claimed-approval"
+    },
+    {
+      "depth": 3,
+      "id": "hfd-x03-prompt-injection-show-your-instructions"
+    },
+    {
+      "depth": 3,
+      "id": "hfd-x04-card-details-offered-in-chat"
+    },
+    {
+      "depth": 2,
+      "id": "cross-cutting-checks"
+    },
+    {
+      "depth": 2,
+      "id": "mapping-from-the-pilot"
+    },
+    {
+      "depth": 2,
+      "id": "gate-capabilities"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-suite-settles"
+    },
+    {
+      "depth": 2,
+      "id": "editions"
+    }
+  ],
+  "/agent/grades": [
+    {
+      "depth": 1,
+      "id": "finding-grades-critical-major-minor"
+    },
+    {
+      "depth": 2,
+      "id": "the-rule"
+    },
+    {
+      "depth": 2,
+      "id": "how-a-score-is-computed"
+    },
+    {
+      "depth": 2,
+      "id": "what-a-grade-is"
+    },
+    {
+      "depth": 2,
+      "id": "what-a-grade-is-not"
+    },
+    {
+      "depth": 2,
+      "id": "where-it-is-printed"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-rule-does-not-do-yet"
+    },
+    {
+      "depth": 2,
+      "id": "versioning"
+    }
+  ],
+  "/agent/scope": [
+    {
+      "depth": 1,
+      "id": "framework-mapping-the-29-hotel-front-desk-jobs"
+    },
+    {
+      "depth": 2,
+      "id": "how-to-read-the-table"
+    },
+    {
+      "depth": 2,
+      "id": "the-map"
+    },
+    {
+      "depth": 2,
+      "id": "coverage-at-a-glance"
+    },
+    {
+      "depth": 2,
+      "id": "scope-what-this-suite-does-and-does-not-test"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-mapping-does-not-prove"
+    },
+    {
+      "depth": 2,
+      "id": "how-to-cite-this"
+    },
+    {
+      "depth": 2,
+      "id": "anchors-used"
+    },
+    {
+      "depth": 2,
+      "id": "sources"
+    }
+  ],
+  "/agent/settled": [
+    {
+      "depth": 1,
+      "id": "what-the-scan-settles"
+    },
+    {
+      "depth": 2,
+      "id": "the-counts"
+    },
+    {
+      "depth": 2,
+      "id": "the-rule"
+    },
+    {
+      "depth": 2,
+      "id": "the-seven-checks"
+    },
+    {
+      "depth": 2,
+      "id": "the-required-steps-by-job"
+    },
+    {
+      "depth": 2,
+      "id": "the-same-suite-six-denominators"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-is-not"
+    },
+    {
+      "depth": 2,
+      "id": "how-the-counts-are-made"
+    },
+    {
+      "depth": 2,
+      "id": "cite-this"
+    }
+  ],
+  "/agent/changelog": [
+    {
+      "depth": 1,
+      "id": "changelog"
+    },
+    {
+      "depth": 2,
+      "id": "2026-11-14-tare-agent-standard-v1-0"
+    },
+    {
+      "depth": 2,
+      "id": "how-a-release-happens"
+    },
+    {
+      "depth": 2,
+      "id": "the-standard-version-and-the-suite-version"
+    }
+  ],
+  "/agent/protocol": [
+    {
+      "depth": 1,
+      "id": "discrimination-test-protocol-v1"
+    },
+    {
+      "depth": 2,
+      "id": "sample-10-bots"
+    },
+    {
+      "depth": 2,
+      "id": "six-scenarios-to-run-first-critical-high-only"
+    },
+    {
+      "depth": 2,
+      "id": "what-to-capture"
+    },
+    {
+      "depth": 2,
+      "id": "scoring"
+    },
+    {
+      "depth": 2,
+      "id": "pass-criteria-for-the-test-itself"
+    },
+    {
+      "depth": 2,
+      "id": "ethics-and-scope"
+    },
+    {
+      "depth": 2,
+      "id": "output"
+    },
+    {
+      "depth": 2,
+      "id": "status"
+    }
+  ],
+  "/shopfront": [
+    {
+      "depth": 1,
+      "id": "the-tare-shopfront-standard"
+    },
+    {
+      "depth": 2,
+      "id": "the-claim"
+    },
+    {
+      "depth": 2,
+      "id": "conformance"
+    },
+    {
+      "depth": 2,
+      "id": "the-four-capabilities"
+    },
+    {
+      "depth": 2,
+      "id": "the-two-cross-cutting-checks"
+    },
+    {
+      "depth": 2,
+      "id": "who-this-is-for"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-standard-is-not"
+    },
+    {
+      "depth": 2,
+      "id": "the-pages"
+    }
+  ],
+  "/shopfront/levels": [
+    {
+      "depth": 1,
+      "id": "levels-and-grades"
+    },
+    {
+      "depth": 2,
+      "id": "the-ladder"
+    },
+    {
+      "depth": 2,
+      "id": "the-grade"
+    },
+    {
+      "depth": 2,
+      "id": "the-pair"
+    },
+    {
+      "depth": 2,
+      "id": "the-profile"
+    },
+    {
+      "depth": 2,
+      "id": "the-2-2-is-the-cover-not-the-engine"
+    },
+    {
+      "depth": 2,
+      "id": "what-a-level-is-not"
+    }
+  ],
+  "/shopfront/capabilities": [
+    {
+      "depth": 1,
+      "id": "the-four-capabilities"
+    },
+    {
+      "depth": 2,
+      "id": "find"
+    },
+    {
+      "depth": 2,
+      "id": "act"
+    },
+    {
+      "depth": 2,
+      "id": "confirm"
+    },
+    {
+      "depth": 2,
+      "id": "recover"
+    },
+    {
+      "depth": 2,
+      "id": "disclose"
+    },
+    {
+      "depth": 2,
+      "id": "admit"
+    },
+    {
+      "depth": 2,
+      "id": "the-chain"
+    }
+  ],
+  "/shopfront/evidence": [
+    {
+      "depth": 1,
+      "id": "what-a-scan-can-capture"
+    },
+    {
+      "depth": 2,
+      "id": "the-three-classes"
+    },
+    {
+      "depth": 2,
+      "id": "the-visitor-layer"
+    },
+    {
+      "depth": 2,
+      "id": "the-consent-boundary"
+    },
+    {
+      "depth": 2,
+      "id": "admission-is-per-layer"
+    },
+    {
+      "depth": 2,
+      "id": "a-receipt-in-the-guests-inbox-is-not-a-missing-receipt"
+    },
+    {
+      "depth": 2,
+      "id": "the-private-receipt-rule"
+    },
+    {
+      "depth": 2,
+      "id": "what-the-scan-will-not-do"
+    },
+    {
+      "depth": 2,
+      "id": "what-is-kept"
+    }
+  ],
+  "/shopfront/jobs": [
+    {
+      "depth": 1,
+      "id": "hotel-shopfront-jobs-22-jobs"
+    },
+    {
+      "depth": 2,
+      "id": "what-the-jobs-are-anchored-to"
+    },
+    {
+      "depth": 2,
+      "id": "find"
+    },
+    {
+      "depth": 2,
+      "id": "act"
+    },
+    {
+      "depth": 2,
+      "id": "confirm"
+    },
+    {
+      "depth": 2,
+      "id": "recover"
+    },
+    {
+      "depth": 2,
+      "id": "what-a-level-requires"
+    },
+    {
+      "depth": 2,
+      "id": "what-this-shelf-does-not-test"
+    }
+  ],
+  "/shopfront/scope": [
+    {
+      "depth": 1,
+      "id": "scope-and-anchors"
+    },
+    {
+      "depth": 2,
+      "id": "what-it-covers"
+    },
+    {
+      "depth": 2,
+      "id": "what-it-does-not-cover"
+    },
+    {
+      "depth": 2,
+      "id": "the-anchors"
+    },
+    {
+      "depth": 2,
+      "id": "what-the-anchors-do-not-give"
+    },
+    {
+      "depth": 2,
+      "id": "how-to-cite-this-standard"
+    }
+  ],
+  "/shopfront/changelog": [
+    {
+      "depth": 1,
+      "id": "changelog"
+    },
+    {
+      "depth": 2,
+      "id": "2026-11-14-tare-shopfront-standard-v1-0"
+    },
+    {
+      "depth": 2,
+      "id": "2026-11-15-clarification-no-version-change"
+    },
+    {
+      "depth": 2,
+      "id": "how-a-release-happens"
+    },
+    {
+      "depth": 2,
+      "id": "the-standard-version-and-an-implementations-version"
+    }
+  ]
+}

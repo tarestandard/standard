@@ -1,0 +1,8 @@
+# Security headers for every response. Served by the Workers static assets
+# runtime from this file, which the build copies to the root of the site.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-Frame-Options: DENY

@@ -1,0 +1,5 @@
+node_modules/
+standard-site/dist/
+.wrangler/
+*.log
+.DS_Store

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility · Tare Standard</title>
+<meta name="description" content="How the published standards at tarestandard.org target WCAG 2.2 Level AA: what is checked, what is known to fall short, and where to report a barrier.">
+<link rel="canonical" href="https://tarestandard.org/accessibility">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E8E2D2">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<meta property="og:site_name" content="Tare Standard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Accessibility · Tare Standard">
+<meta property="og:description" content="How the published standards at tarestandard.org target WCAG 2.2 Level AA: what is checked, what is known to fall short, and where to report a barrier.">
+<meta property="og:url" content="https://tarestandard.org/accessibility">
+<meta property="og:image" content="https://tarestandard.org/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tare Standard — two published standards, the Agent Standard and the Shopfront Standard. Versioned, dated and free to read.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Accessibility · Tare Standard">
+<meta name="twitter:description" content="How the published standards at tarestandard.org target WCAG 2.2 Level AA: what is checked, what is known to fall short, and where to report a barrier.">
+<meta name="twitter:image" content="https://tarestandard.org/assets/og.png">
+<meta name="twitter:image:alt" content="Tare Standard — two published standards, the Agent Standard and the Shopfront Standard. Versioned, dated and free to read.">
+<link rel="icon" href="/editions/2026-11-14/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Archivo+Narrow:wght@500;600;700&amp;family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/editions/2026-11-14/assets/site.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Accessibility · Tare Standard","description":"How the published standards at tarestandard.org target WCAG 2.2 Level AA: what is checked, what is known to fall short, and where to report a barrier.","url":"https://tarestandard.org/accessibility","datePublished":"2026-11-14","dateModified":"2026-11-14","license":"https://creativecommons.org/licenses/by/4.0/","publisher":{"@type":"Organization","name":"Tare Standard","url":"https://tarestandard.org/"},"isBasedOn":"https://github.com/tarestandard/standard"}</script>
+<style>.edition-banner{position:sticky;top:0;z-index:99;background:#20241f;color:#e8e2d2;font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;padding:8px 18px}.edition-banner p{margin:0}.edition-banner a{color:#e8e2d2;text-decoration:underline;text-underline-offset:.18em}</style>
+</head>
+<body>
+<div class="edition-banner" data-edition="2026-11-14" role="note"><p><strong>Archive.</strong> This is the 2026-11-14 edition of Tare Standard v1.0 — the first published edition of the Agent Standard and the Shopfront Standard. <a href="/">Read the latest edition</a> or the <a href="/agent/changelog">changelog</a>. Licence updated 2026-11-15: the text is CC BY 4.0 and the name and marks are reserved.</p></div>
+<a class="skip" href="#main">Skip to the contents</a>
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="wordmark" href="/editions/2026-11-14/">
+      <span class="wordmark-name">Tare Standard</span>
+      <span class="wordmark-sub">Code of Points</span>
+    </a>
+    <nav class="site-nav" aria-label="The published standards">
+      <a href="/editions/2026-11-14/">Contents</a>
+      <a href="/editions/2026-11-14/agent">Agent Standard</a>
+      <a href="/editions/2026-11-14/shopfront">Shopfront Standard</a>
+    </nav>
+  </div>
+  <div class="running-head">
+    <span class="running-section">Accessibility</span>
+    <span class="running-version">Tare Standard · published <time datetime="2026-11-14">2026-11-14</time></span>
+  </div>
+</header>
+<main id="main" class="statement">
+  <article class="document">
+    <h1>Accessibility</h1>
+    <p class="statement-meta">This statement covers the published standards at <a href="/editions/2026-11-14/">tarestandard.org</a>. Reviewed <time datetime="2026-11-14">2026-11-14</time>. <a href="/editions/2026-11-14/accessibility.md">Source (Markdown)</a>.</p>
+<p>This site targets WCAG 2.2 Level AA. This page records what that target covers,
+how the site is checked, what is known to fall short, and where to report a
+barrier.</p>
+<h2>What this page covers</h2>
+<p>This statement covers the pages the site publishes: the contents at <code>/</code>, the
+Agent Standard and its documents, the Shopfront Standard and its documents, the
+not-found page, and this statement. It does not cover the scan service at
+<a href="https://tarestandard.com">tarestandard.com</a>, which is a separate product and
+publishes its own record.</p>
+<h2>The target</h2>
+<p>The target is WCAG 2.2 Level AA. The site is a static reading surface: no
+account, no form, no timed action, and no authored animation. Where a reference
+table is wider than a phone, the table scrolls inside its own labelled region
+and the page itself does not scroll sideways.</p>
+<h2>How the site is checked</h2>
+<ul>
+<li>Every change is checked in a browser at 320, 390, 640, 767, 768, 980, 1039,
+1040, 1360 and 1440 pixels wide. The check fails on a page that pans, on a
+table that scrolls without its cue, on a dated line that wraps inside the
+date, and on a table cell that breaks a word.</li>
+<li>The pages are read with a keyboard, at 200% zoom, and the focus ring is
+checked on the shipped stylesheet.</li>
+<li>Colour contrast is measured from the shipped stylesheet: body and table text
+12.18:1, secondary text 5.80:1, the focus ring 5.17:1.</li>
+<li>The source Markdown is published beside each document, so the same text is
+available without the page&#39;s styling.</li>
+</ul>
+<h2>Known limitations</h2>
+<ul>
+<li>Wide reference tables scroll horizontally inside their own region at narrow
+widths. A visible cue above the table says so; the page itself stays within
+the viewport.</li>
+<li>The site has no search. The contents page and each document&#39;s &quot;On this page&quot;
+list are the ways in.</li>
+<li>The copy control needs JavaScript. Without it, the citation text is still
+selectable and every URL is printed as text.</li>
+<li>No assistive-technology audit is on file yet. The pages use landmarks, one
+<code>h1</code>, ordered headings, a skip link, labelled table regions and a visible
+focus ring; a manual screen-reader pass is the next check.</li>
+<li>The site is checked against the WCAG 2.2 AA target on its own pages. It is
+not audited by a third party, and this page records what was tested rather
+than granting a status.</li>
+</ul>
+<h2>Reporting a barrier</h2>
+<p>Report a barrier at <a href="https://github.com/tarestandard/standard/issues">the public issue tracker</a>.
+Name the page and what happened. Every report is read. If you need the
+standard in another format, ask there as well.</p>
+<h2>This statement</h2>
+<p>The review date is printed above, and it is the site&#39;s publication date. This
+statement is republished whenever the site changes; it is not a new edition of
+either standard.</p>
+
+  </article>
+</main>
+<footer class="colophon">
+  <div class="colophon-inner">
+    <div>
+      <p class="colophon-wordmark">Tare Standard</p>
+      <p class="colophon-split">The standard is public. The scan is a service. <a href="https://tarestandard.com">tarestandard.com</a> runs it.</p>
+    </div>
+    <div>
+      <p class="colophon-claims">This site publishes what each standard tests and what a scan observed. It grants no status and no accreditation.</p>
+      <p class="colophon-status">Status: this site publishes the standards listed at its contents, each with its own version and its own date. An error in one of them can be reported at <a href="https://github.com/tarestandard/standard/issues">the issue tracker</a>.</p>
+      <p class="colophon-licence">Published under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: share it and adapt it with attribution; the marks are reserved — see the <a href="https://github.com/tarestandard/standard/blob/main/TRADEMARKS.md">trademark policy</a>.</p>
+      <p class="colophon-version">Tare Standard · published <time datetime="2026-11-14">2026-11-14</time></p>
+      <p class="colophon-links"><a href="/editions/2026-11-14/">Contents</a> · <a href="/editions/2026-11-14/accessibility">Accessibility</a> · <a href="https://github.com/tarestandard/standard">Repository</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/editions/2026-11-14/assets/copy.js" defer></script>
+</body>
+</html>

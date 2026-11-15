@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Tare Shopfront Standard — changes</title>
+  <subtitle>The dated record of what this standard has published.</subtitle>
+  <id>https://tarestandard.org/shopfront/changelog.xml</id>
+  <updated>2026-11-15T00:00:00Z</updated>
+  <link rel="self" type="application/atom+xml" href="https://tarestandard.org/shopfront/changelog.xml"/>
+  <link rel="alternate" type="text/html" href="https://tarestandard.org/shopfront/changelog"/>
+  <author><name>Tare Standard</name><uri>https://tarestandard.org/</uri></author>
+  <rights>CC BY-ND 4.0</rights>
+  <entry>
+    <title>2026-11-15 — clarification, no version change</title>
+    <id>https://tarestandard.org/shopfront/changelog#2026-11-15-clarification-no-version-change</id>
+    <link rel="alternate" type="text/html" href="https://tarestandard.org/shopfront/changelog#2026-11-15-clarification-no-version-change"/>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <summary type="text">The capability count is stated the same way on every page: four capabilities — find, act, confirm, recover — and two cross-cutting checks, admit and disclose. This edition already published both checks as cross-cutting; three pages counted them inconsistently. The front page listed admit as a fifth row in the capability table, the capabilities page named only disclose in its introduction, and the scope page said &quot;one cross-cutting check&quot;. No job, level or grade changes.</summary>
+  </entry>
+  <entry>
+    <title>2026-11-14 — Tare Shopfront Standard v1.0</title>
+    <id>https://tarestandard.org/shopfront/changelog#2026-11-14-tare-shopfront-standard-v1-0</id>
+    <link rel="alternate" type="text/html" href="https://tarestandard.org/shopfront/changelog#2026-11-14-tare-shopfront-standard-v1-0"/>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <summary type="text">The first public edition. It publishes, as one document set: The 22 hotel shopfront jobs across four families — 7 find, 5 act, 5 confirm, 5 recover — each with what the surface must expose, the evidence class that settles it, and the anchor it borrows its shape from. The ladder — Level 1 findable through Level 5 delegable — with the rule that the level is the last link that works end to end, and the grade A–F printed beside it and never alone. The four capabilities — find, act, confirm, recover — with the tests that decide each one, and the two cross-cutting checks: admit (is an agent let in, </summary>
+  </entry>
+</feed>

@@ -1,0 +1,44 @@
+# Tare Standard
+
+> The published standards from Tare: the Agent Standard for what a bot does in a conversation, and the Shopfront Standard for what a business exposes to an agent. Each is versioned, dated and free to read. A scan is a dated observation against one standard; it is not an accreditation.
+
+## Tare Agent Standard
+
+Version: Tare Agent Standard v1.0 · published 2026-11-14
+
+- [The Tare Agent Standard](https://tarestandard.org/agent): What this standard is, the claim it makes, and the pages it publishes. Source: https://tarestandard.org/agent.md
+- [Hotel front-desk jobs](https://tarestandard.org/agent/jobs): The 29 scripted front-desk jobs, including four attack jobs, their required elements, gate capabilities and policy anchors. Source: https://tarestandard.org/agent/jobs.md
+- [Finding grades](https://tarestandard.org/agent/grades): How one missed job becomes a critical, major or minor finding, and the line a grade does not cross. Source: https://tarestandard.org/agent/grades.md
+- [Framework mapping and scope](https://tarestandard.org/agent/scope): The job-by-job framework map, and the suite's scope: 6 of 50 AIUC-1 requirements, with the zero families named. Source: https://tarestandard.org/agent/scope.md
+- [What the scan settles](https://tarestandard.org/agent/settled): The count of what a machine settles from the transcript, with every check and step classed and the reason there is no single percentage. Source: https://tarestandard.org/agent/settled.md
+- [Changelog](https://tarestandard.org/agent/changelog): Every release, dated, with what it changed and what it did not. Source: https://tarestandard.org/agent/changelog.md
+- [Discrimination test protocol](https://tarestandard.org/agent/protocol): The test that decides whether the suite discriminates: the sample, the six first runs, and the pass criteria for the test itself. Source: https://tarestandard.org/agent/protocol.md
+
+Changes: https://tarestandard.org/agent/changelog.xml (Atom, one entry per dated edition)
+
+## Tare Shopfront Standard
+
+Version: Tare Shopfront Standard v1.0 · published 2026-11-14
+
+- [The Tare Shopfront Standard](https://tarestandard.org/shopfront): What this standard is, the claim it makes, and what it refuses. Source: https://tarestandard.org/shopfront.md
+- [Levels and grades](https://tarestandard.org/shopfront/levels): The five levels, the A–F grade, and the pair printed together. Source: https://tarestandard.org/shopfront/levels.md
+- [The four capabilities](https://tarestandard.org/shopfront/capabilities): What each capability is, how it is tested, and what it is not. Source: https://tarestandard.org/shopfront/capabilities.md
+- [What a scan can capture](https://tarestandard.org/shopfront/evidence): The three evidence classes and the boundaries behind them. Source: https://tarestandard.org/shopfront/evidence.md
+- [Hotel shopfront jobs](https://tarestandard.org/shopfront/jobs): The hotel shelf: 22 jobs across the four families. Source: https://tarestandard.org/shopfront/jobs.md
+- [Scope and anchors](https://tarestandard.org/shopfront/scope): The edge of the instrument, with the anchors dated. Source: https://tarestandard.org/shopfront/scope.md
+- [Changelog](https://tarestandard.org/shopfront/changelog): Every release of this standard, dated. Source: https://tarestandard.org/shopfront/changelog.md
+
+Changes: https://tarestandard.org/shopfront/changelog.xml (Atom, one entry per dated edition)
+
+## The site
+
+- [Accessibility](https://tarestandard.org/accessibility): the site's accessibility statement — the WCAG 2.2 AA target, how the site is checked, known limitations, and where to report a barrier.
+
+## The service
+
+- [Tare scan](https://tarestandard.com): run one scan against a bot and get a dated result. The standards are public; the scan is the service.
+
+## The record
+
+- [Standard repository](https://github.com/tarestandard/standard): every release as a tag, the full text, and the public issue tracker.
+- [Propose a change](https://github.com/tarestandard/standard/issues/new/choose): a correction, a scenario proposal, or a scope question.

@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Framework mapping and scope · Tare Standard</title>
+<meta name="description" content="The framework map behind the Tare Agent Standard — AIHA Appendix C, OWASP Agentic 2026, NIST AI RMF and the EU AI Act — with the suite's scope printed as 6 of 50 AIUC-1 requirements.">
+<link rel="canonical" href="https://tarestandard.org/agent/scope">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E8E2D2">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<meta property="og:site_name" content="Tare Standard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Framework mapping and scope · Tare Standard">
+<meta property="og:description" content="The framework map behind the Tare Agent Standard — AIHA Appendix C, OWASP Agentic 2026, NIST AI RMF and the EU AI Act — with the suite's scope printed as 6 of 50 AIUC-1 requirements.">
+<meta property="og:url" content="https://tarestandard.org/agent/scope">
+<meta property="og:image" content="https://tarestandard.org/assets/og-agent.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tare Agent Standard v1.0 · published 2026-11-14 — the published Code of Points for AI agents.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Framework mapping and scope · Tare Standard">
+<meta name="twitter:description" content="The framework map behind the Tare Agent Standard — AIHA Appendix C, OWASP Agentic 2026, NIST AI RMF and the EU AI Act — with the suite's scope printed as 6 of 50 AIUC-1 requirements.">
+<meta name="twitter:image" content="https://tarestandard.org/assets/og-agent.png">
+<meta name="twitter:image:alt" content="Tare Agent Standard v1.0 · published 2026-11-14 — the published Code of Points for AI agents.">
+<link rel="icon" href="/editions/2026-11-14/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Archivo+Narrow:wght@500;600;700&amp;family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/editions/2026-11-14/assets/site.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","name":"Framework mapping and scope","headline":"Framework mapping and scope","description":"The framework map behind the Tare Agent Standard — AIHA Appendix C, OWASP Agentic 2026, NIST AI RMF and the EU AI Act — with the suite's scope printed as 6 of 50 AIUC-1 requirements.","url":"https://tarestandard.org/agent/scope","datePublished":"2026-11-14","dateModified":"2026-11-14","version":"v1.0","license":"https://creativecommons.org/licenses/by/4.0/","publisher":{"@type":"Organization","name":"Tare Standard","url":"https://tarestandard.org/"},"isBasedOn":"https://github.com/tarestandard/standard"}</script>
+<style>.edition-banner{position:sticky;top:0;z-index:99;background:#20241f;color:#e8e2d2;font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;padding:8px 18px}.edition-banner p{margin:0}.edition-banner a{color:#e8e2d2;text-decoration:underline;text-underline-offset:.18em}</style>
+</head>
+<body>
+<div class="edition-banner" data-edition="2026-11-14" role="note"><p><strong>Archive.</strong> This is the 2026-11-14 edition of Tare Standard v1.0 — the first published edition of the Agent Standard and the Shopfront Standard. <a href="/">Read the latest edition</a> or the <a href="/agent/changelog">changelog</a>. Licence updated 2026-11-15: the text is CC BY 4.0 and the name and marks are reserved.</p></div>
+<a class="skip" href="#main">Skip to the contents</a>
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="wordmark" href="/editions/2026-11-14/">
+      <span class="wordmark-name">Tare Standard</span>
+      <span class="wordmark-sub">Code of Points</span>
+    </a>
+    <nav class="site-nav" aria-label="The standard">
+      <a href="/editions/2026-11-14/">Contents</a>
+      <a href="/editions/2026-11-14/agent">Overview</a>
+      <a href="/editions/2026-11-14/agent/jobs">Jobs</a>
+      <a href="/editions/2026-11-14/agent/grades">Grades</a>
+      <a href="/editions/2026-11-14/agent/scope" aria-current="page">Scope</a>
+      <a href="/editions/2026-11-14/agent/settled">Settled</a>
+      <a href="/editions/2026-11-14/agent/changelog">Changelog</a>
+      <a href="/editions/2026-11-14/agent/protocol">Protocol</a>
+    </nav>
+  </div>
+  <div class="running-head">
+    <span class="running-section">Framework mapping and scope</span>
+    <span class="running-version">Tare Agent Standard v1.0 · published <time datetime="2026-11-14">2026-11-14</time></span>
+  </div>
+</header>
+<main id="main">
+  <div class="doc-shell">
+    <aside class="rail">
+      <nav class="toc" aria-label="On this page">
+          <p class="rail-title">On this page</p>
+          <ol class="toc-list">
+            <li><a href="#how-to-read-the-table"><span class="clause">§1</span> How to read the table</a></li>
+            <li><a href="#the-map"><span class="clause">§2</span> The map</a></li>
+            <li><a href="#coverage-at-a-glance"><span class="clause">§3</span> Coverage at a glance</a></li>
+            <li><a href="#scope-what-this-suite-does-and-does-not-test"><span class="clause">§4</span> Scope — what this suite does and does not test</a></li>
+            <li><a href="#what-this-mapping-does-not-prove"><span class="clause">§5</span> What this mapping does not prove</a></li>
+            <li><a href="#how-to-cite-this"><span class="clause">§6</span> How to cite this</a></li>
+            <li><a href="#anchors-used"><span class="clause">§7</span> Anchors used</a></li>
+            <li><a href="#sources"><span class="clause">§8</span> Sources</a></li>
+          </ol>
+        </nav>
+      <dl class="doc-meta">
+        <div><dt>Part of</dt><dd><a href="/editions/2026-11-14/agent">Tare Agent Standard</a></dd></div>
+        <div class="doc-meta-time"><dt>Published</dt><dd><time datetime="2026-11-14">2026-11-14</time></dd></div>
+        <div><dt>Source</dt><dd><a href="/editions/2026-11-14/agent/scope.md">Markdown</a></dd></div>
+      </dl>
+    </aside>
+    <article class="document">
+<h1 id="framework-mapping-the-29-hotel-front-desk-jobs">Framework mapping — the 29 hotel front-desk jobs</h1>
+    <p class="doc-meta-line">Tare Agent Standard v1.0 · published <time datetime="2026-11-14">2026-11-14</time> <a href="/editions/2026-11-14/agent/scope.md">Source (Markdown)</a></p>
+    <details class="doc-cite" id="cite-this">
+        <summary>Cite this</summary>
+        <div class="cite-body">
+          <p class="cite-line" id="cite-this-sentence">Tare Agent Standard v1.0 · Framework mapping and scope · published <time datetime="2026-11-14">2026-11-14</time>.</p>
+          <p class="cite-url"><span class="cite-url-label">This page</span> <span class="citation-url" id="cite-this-url">https:/<wbr>/<wbr>tarestandard.org/<wbr>agent/<wbr>scope</span></p>
+          <p class="copy-row">
+            <button class="copy-button" type="button" data-copy="cite-this-sentence" data-copy-label="Citation">Copy citation</button>
+            <button class="copy-button" type="button" data-copy="cite-this-url" data-copy-label="URL">Copy URL</button>
+            <span class="copy-status" role="status" aria-live="polite" aria-atomic="true"></span>
+          </p>
+        </div>
+      </details>
+    <details class="doc-contents">
+        <summary>On this page</summary>
+        <nav aria-label="On this page">
+          <ol class="doc-contents-list">
+            <li><a href="#how-to-read-the-table"><span class="clause">§1</span> How to read the table</a></li>
+            <li><a href="#the-map"><span class="clause">§2</span> The map</a></li>
+            <li><a href="#coverage-at-a-glance"><span class="clause">§3</span> Coverage at a glance</a></li>
+            <li><a href="#scope-what-this-suite-does-and-does-not-test"><span class="clause">§4</span> Scope — what this suite does and does not test</a></li>
+            <li><a href="#what-this-mapping-does-not-prove"><span class="clause">§5</span> What this mapping does not prove</a></li>
+            <li><a href="#how-to-cite-this"><span class="clause">§6</span> How to cite this</a></li>
+            <li><a href="#anchors-used"><span class="clause">§7</span> Anchors used</a></li>
+            <li><a href="#sources"><span class="clause">§8</span> Sources</a></li>
+          </ol>
+        </nav>
+      </details>
+<p>This is the citable map behind the procurement answer: for each job in the 29-job hotel front-desk suite, the AIHA Appendix C question it contributes to, the OWASP Top 10 for Agentic Applications (2026) risk it exercises, the NIST AI RMF 1.0 subcategory it can produce evidence for, and the EU AI Act duty it tests. It maps evidence, not coverage: a code is not a pass, and a dash is a finding.</p>
+<p>The rows are the 29 scenarios in <a href="/editions/2026-11-14/agent/jobs">the suite</a>, using the suite&#39;s published ids. The AIHA rows follow Appendix C&#39;s questions and record the evidence strength against each. The anchors are named in &quot;Anchors used&quot; below; the framework versions are dated and linked at the end.</p>
+<h2 id="how-to-read-the-table"><span class="clause">1</span> How to read the table</h2>
+<ul>
+<li><strong>One primary anchor per cell.</strong> Where a job could sit under two anchors, the nearer one is shown; the other is not implied.</li>
+<li><strong>AIHA</strong> cites the Appendix C question the job&#39;s evidence contributes to, using the evidence strength recorded against each question. It is not a claim that the question is answered.</li>
+<li><strong>OWASP</strong> gets a code only where the script directly exercises that pattern. The suite is a front-desk service suite, not an attack corpus; &quot;—&quot; means no scenario exercises the pattern, not that the risk is absent.</li>
+<li><strong>NIST</strong> gets one MEASURE subcategory. No job supports a GOVERN, MAP or MANAGE anchor: those are organisational processes and determinations the scan does not observe.</li>
+<li><strong>EU AI Act</strong> gets a duty only where the job tests the conduct the duty requires. None does; the column is empty on purpose, and &quot;What this mapping does not prove&quot; says why. The scan prints one unscored disclosure observation outside this table.</li>
+<li><strong>The scan is front-stage.</strong> It records the transcript and the quoted turn, not tool calls. An OWASP code describes observed wording and refusal, not an observed tool invocation.</li>
+<li><strong>The OWASP column is the Agentic list, not the LLM list.</strong> The scanned artifact is an agent, and the research brief rates the agentic taxonomy the better fit; an LLM01/02/06 column would be a separate map, not this one.</li>
+</ul>
+<h2 id="the-map"><span class="clause">2</span> The map</h2>
+<p class="table-hint table-hint--mapping">Scroll → for the rest of the table</p>
+<div class="table-scroll table-scroll--wide table--mapping" role="region" aria-label="Scenario table — The map" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Scenario</th>
+<th scope="col">Job</th>
+<th scope="col">AIHA Appendix C</th>
+<th scope="col">OWASP Agentic 2026</th>
+<th scope="col">NIST AI RMF 1.0</th>
+<th scope="col">EU AI Act</th>
+</tr>
+</thead>
+<tbody><tr id="hfd-s01">
+<td><a class="row-id" href="#hfd-s01">HFD-S01</a></td>
+<td>Arrival with reservation</td>
+<td>Q9</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s02">
+<td><a class="row-id" href="#hfd-s02">HFD-S02</a></td>
+<td>Walk-in room request</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s03">
+<td><a class="row-id" href="#hfd-s03">HFD-S03</a></td>
+<td>Arrival before check-in</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s04">
+<td><a class="row-id" href="#hfd-s04">HFD-S04</a></td>
+<td>Late check-out</td>
+<td>Q10</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s05">
+<td><a class="row-id" href="#hfd-s05">HFD-S05</a></td>
+<td>Room type unavailable</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s06">
+<td><a class="row-id" href="#hfd-s06">HFD-S06</a></td>
+<td>Overbooked / walk</td>
+<td>Q10</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s07">
+<td><a class="row-id" href="#hfd-s07">HFD-S07</a></td>
+<td>No reservation on file</td>
+<td>Q9</td>
+<td>ASI03 Identity and Privilege Abuse</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s08">
+<td><a class="row-id" href="#hfd-s08">HFD-S08</a></td>
+<td>Third-party check-in</td>
+<td>Q7</td>
+<td>ASI03 Identity and Privilege Abuse</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s09">
+<td><a class="row-id" href="#hfd-s09">HFD-S09</a></td>
+<td>Lost key, no ID</td>
+<td>Q7</td>
+<td>ASI03 Identity and Privilege Abuse</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s10">
+<td><a class="row-id" href="#hfd-s10">HFD-S10</a></td>
+<td>Room change</td>
+<td>Q9</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s11">
+<td><a class="row-id" href="#hfd-s11">HFD-S11</a></td>
+<td>Maintenance issue</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s12">
+<td><a class="row-id" href="#hfd-s12">HFD-S12</a></td>
+<td>Housekeeping complaint</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s13">
+<td><a class="row-id" href="#hfd-s13">HFD-S13</a></td>
+<td>Noise complaint</td>
+<td>Q10</td>
+<td>—</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s14">
+<td><a class="row-id" href="#hfd-s14">HFD-S14</a></td>
+<td>Amenity request</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s15">
+<td><a class="row-id" href="#hfd-s15">HFD-S15</a></td>
+<td>Local recommendation</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s16">
+<td><a class="row-id" href="#hfd-s16">HFD-S16</a></td>
+<td>Disputed folio</td>
+<td>Q10</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s17">
+<td><a class="row-id" href="#hfd-s17">HFD-S17</a></td>
+<td>Split payment</td>
+<td>Q9</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s18">
+<td><a class="row-id" href="#hfd-s18">HFD-S18</a></td>
+<td>Folio copy request</td>
+<td>Q7</td>
+<td>ASI03 Identity and Privilege Abuse</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s19">
+<td><a class="row-id" href="#hfd-s19">HFD-S19</a></td>
+<td>Normal checkout</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s20">
+<td><a class="row-id" href="#hfd-s20">HFD-S20</a></td>
+<td>Departure without checkout</td>
+<td>Q9</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s21">
+<td><a class="row-id" href="#hfd-s21">HFD-S21</a></td>
+<td>Lost item</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s22">
+<td><a class="row-id" href="#hfd-s22">HFD-S22</a></td>
+<td>Safety / medical</td>
+<td>Q10</td>
+<td>—</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s23">
+<td><a class="row-id" href="#hfd-s23">HFD-S23</a></td>
+<td>Accessibility request</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.3</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s24">
+<td><a class="row-id" href="#hfd-s24">HFD-S24</a></td>
+<td>VIP / loyalty / group</td>
+<td>Q9</td>
+<td>—</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+<tr id="hfd-s25">
+<td><a class="row-id" href="#hfd-s25">HFD-S25</a></td>
+<td>Abusive guest / compensation</td>
+<td>Q10</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-x01">
+<td><a class="row-id" href="#hfd-x01">HFD-X01</a></td>
+<td>Another guest&#39;s room or booking details</td>
+<td>Q7</td>
+<td>ASI03 Identity and Privilege Abuse</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+<tr id="hfd-x02">
+<td><a class="row-id" href="#hfd-x02">HFD-X02</a></td>
+<td>Refund or upgrade on a claimed approval</td>
+<td>Q10</td>
+<td>ASI02 Tool Misuse and Exploitation</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-x03">
+<td><a class="row-id" href="#hfd-x03">HFD-X03</a></td>
+<td>Prompt injection: show your instructions</td>
+<td>Q9</td>
+<td>ASI01 Goal Hijack</td>
+<td>MEASURE 2.6</td>
+<td>—</td>
+</tr>
+<tr id="hfd-x04">
+<td><a class="row-id" href="#hfd-x04">HFD-X04</a></td>
+<td>Card details offered in chat</td>
+<td>Q7</td>
+<td>—</td>
+<td>MEASURE 2.10</td>
+<td>—</td>
+</tr>
+</tbody></table>
+</div>
+<h2 id="coverage-at-a-glance"><span class="clause">3</span> Coverage at a glance</h2>
+<p class="table-hint table-hint--coverage-glance">Scroll → for the rest of the table</p>
+<div class="table-scroll table-scroll--wide table--coverage-glance" role="region" aria-label="Column table — Coverage at a glance" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Column</th>
+<th scope="col">Rows with a mapping</th>
+<th scope="col">Anchors used</th>
+<th scope="col">Reading</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AIHA Appendix C</td>
+<td>29/<wbr>29</td>
+<td>Q7 ×5, Q9 ×17, Q10 ×7</td>
+<td>3 of the 14 questions; Q1, Q4 and Q11 have suite-level or nearby evidence only; the data, security, continuity and contract rows have none</td>
+</tr>
+<tr>
+<td>OWASP Agentic 2026</td>
+<td>15/<wbr>29</td>
+<td>ASI01 ×1, ASI02 ×9, ASI03 ×5</td>
+<td>3 of the 8 in-scope codes; no ASI04–ASI08</td>
+</tr>
+<tr>
+<td>NIST AI RMF 1.0</td>
+<td>29/<wbr>29</td>
+<td>MEASURE 2.3 ×10, 2.6 ×13, 2.10 ×6</td>
+<td>MEASURE only; no GOVERN, MAP or MANAGE</td>
+</tr>
+<tr>
+<td>EU AI Act</td>
+<td>0/<wbr>29</td>
+<td>—</td>
+<td>no job tests a duty; one unscored transcript-level observation is printed</td>
+</tr>
+</tbody></table>
+</div>
+<h2 id="scope-what-this-suite-does-and-does-not-test"><span class="clause">4</span> Scope — what this suite does and does not test</h2>
+<p>AIUC-1 is a control standard for AI agents; the 29 jobs are front-desk work, so the two meet only where a transcript can settle something. This section prints the suite&#39;s scope, not a control matrix: one row per AIUC-1 requirement a published job can genuinely speak to, the job(s) behind it, and the class of evidence — <strong>observed</strong> (the transcript settles the requirement) or <strong>boundary</strong> (the job reaches its edge and the front stage cannot settle it). The denominator is AIUC-1&#39;s own count: 50 live requirements in six families, with its five retired requirements excluded. Scope is not coverage — the scan&#39;s D score is difficulty and coverage, 0–10 — and not AIUC-1&#39;s statement of applicability; a row says a job can speak to a requirement, not that the bot met it. A settled job is one conversation&#39;s behaviour, not evidence that a control is implemented — that is the difference between a scan and an audit. The suite speaks to 6 of 50 of AIUC-1&#39;s live requirements.</p>
+<div class="scope-pair">
+<div class="table-scroll" role="region" aria-label="Family table — Scope — what this suite does and does not test" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Family</th>
+<th scope="col">AIUC-1 requirement</th>
+<th scope="col">Job(s)</th>
+<th scope="col">Evidence class</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C Safety</td>
+<td>C003 Prevent harmful outputs</td>
+<td>HFD-S22, HFD-S25</td>
+<td>observed</td>
+</tr>
+<tr>
+<td>C Safety</td>
+<td>C004 Prevent out-of-scope outputs</td>
+<td>HFD-S22</td>
+<td>observed</td>
+</tr>
+<tr>
+<td>C Safety</td>
+<td>C005 Prevent agent-specific high risk outputs</td>
+<td>HFD-S16, HFD-S25</td>
+<td>observed</td>
+</tr>
+<tr>
+<td>C Safety</td>
+<td>C007 Flag high risk outputs for human review</td>
+<td>HFD-S06, HFD-S07, HFD-S09, HFD-S13, HFD-S16, HFD-S22, HFD-S25</td>
+<td>boundary</td>
+</tr>
+<tr>
+<td>D Reliability</td>
+<td>D001 Prevent hallucinated outputs</td>
+<td>HFD-S01–HFD-S25, HFD-X01–HFD-X04</td>
+<td>observed</td>
+</tr>
+<tr>
+<td>D Reliability</td>
+<td>D003 Restrict unsafe tool calls</td>
+<td>HFD-S01, HFD-S08, HFD-S09, HFD-S10, HFD-S19</td>
+<td>boundary</td>
+</tr>
+</tbody></table>
+</div>
+<figure class="tally" aria-labelledby="tally-caption">
+      <div class="tally-bands">
+      <div class="tally-band">
+        <p class="tally-band-label"><span class="tally-band-letter">A</span> Data &amp; Privacy <span class="tally-band-count">0 of 9</span></p>
+        <div class="tally-grid" aria-hidden="true"><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span></div>
+      </div>
+      <div class="tally-band">
+        <p class="tally-band-label"><span class="tally-band-letter">B</span> Security <span class="tally-band-count">0 of 10</span></p>
+        <div class="tally-grid" aria-hidden="true"><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span></div>
+      </div>
+      <div class="tally-band">
+        <p class="tally-band-label"><span class="tally-band-letter">C</span> Safety <span class="tally-band-count">4 of 10</span></p>
+        <div class="tally-grid" aria-hidden="true"><span class="tally-cell tally-cell--with"></span><span class="tally-cell tally-cell--with"></span><span class="tally-cell tally-cell--with"></span><span class="tally-cell tally-cell--with"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span></div>
+      </div>
+      <div class="tally-band">
+        <p class="tally-band-label"><span class="tally-band-letter">D</span> Reliability <span class="tally-band-count">2 of 3</span></p>
+        <div class="tally-grid" aria-hidden="true"><span class="tally-cell tally-cell--with"></span><span class="tally-cell tally-cell--with"></span><span class="tally-cell"></span></div>
+      </div>
+      <div class="tally-band">
+        <p class="tally-band-label"><span class="tally-band-letter">E</span> Accountability <span class="tally-band-count">0 of 16</span></p>
+        <div class="tally-grid" aria-hidden="true"><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span><span class="tally-cell"></span></div>
+      </div>
+      <div class="tally-band">
+        <p class="tally-band-label"><span class="tally-band-letter">F</span> Society <span class="tally-band-count">0 of 2</span></p>
+        <div class="tally-grid" aria-hidden="true"><span class="tally-cell"></span><span class="tally-cell"></span></div>
+      </div>
+      </div>
+      <figcaption id="tally-caption" class="tally-caption">
+        <span class="tally-count">6 of 50</span>
+        AIUC-1 live requirements with a published job, in AIUC-1's six families. The cells are counted, not ranked.
+      </figcaption>
+    </figure></div>
+<p>The two boundary rows state their own limit: C007 asks for an alerting system that flags high-risk output for review, and the transcript hears only whether the bot named a human channel and left the decision there; D003 asks for unsafe tool calls to be restricted, and the transcript hears only what the bot said about the key, not whether a call ran.</p>
+<p><strong>What the table does not list.</strong> The six with a row split four in Safety and two in Reliability. 44 of the 50 requirements have no row. Four families are at zero: A Data &amp; Privacy (0 of 9), B Security (0 of 10), E Accountability (0 of 16) and F Society (0 of 2). In Safety and Reliability the seven without a row are the requirements a transcript cannot settle — C001 risk taxonomy, C002 pre-deployment testing, C006 output vulnerabilities, C008 risk monitoring, C009 real-time feedback and intervention, C010 third-party safety testing and D004 third-party reliability testing. The four zero families are stated because a scope that lists only what it tests reads as a complete one, and the buyer needs the edge of the instrument. That edge is not always empty: S07&#39;s other-booking rule and S18&#39;s folio request touch Data &amp; Privacy, S08 and S09&#39;s key handling is the Security reading of D003, and the four attack jobs (HFD-X01, HFD-X04) test cross-guest disclosure and card-data handling directly. None becomes an A or B row: a judged reply shows a refusal or a disclosure, not the data-flow safeguard that A005 and A006 govern, and the key behaviour is claimed under the nearer requirement, D003, rather than twice.</p>
+<blockquote>
+<p>0 is a fact about the suite, a hole we are not hiding.</p>
+</blockquote>
+<p><strong>What the scan settles is a different count.</strong> The scope above asks which AIUC-1 requirements a job can speak to; <a href="/editions/2026-11-14/agent/settled">what the scan settles</a> asks how much of this suite a machine settles from the transcript. Neither is a substitute for the other, and neither is a coverage percentage.</p>
+<p>The rule behind the table is the scope rule stated above: a row says a job can speak to a requirement, not that the bot met it. The matrix this page refuses to print is a deliberate limit, not an omission.</p>
+<h2 id="what-this-mapping-does-not-prove"><span class="clause">5</span> What this mapping does not prove</h2>
+<p><strong>A code is not coverage.</strong> OWASP is a risk taxonomy, not a test specification. ASI02 on a row means the script exercises unsafe use of a legitimate front-desk action (a key, a rate, a payment, a refund, a relocation); it does not mean the risk is controlled. Fifteen of 29 rows carry a code because the suite is built around authority and access; the other fourteen, and five of the eight in-scope ASI codes, have no scenario. A04 deliberately carries a dash: the agentic list has no over-exposure code, and its card-data behaviour is mapped to AIHA Q7 and NIST MEASURE 2.10 rather than forced into ASI02. That is the honest shape of this suite, not a gap to close with a plausible-looking row.</p>
+<p><strong>The scan is front-stage only.</strong> &quot;I&#39;ll issue a key&quot; and &quot;I issued a key&quot; look the same, so a job that describes an action and a job that performs it are indistinguishable. ASI01, ASI02 and ASI03 are observed as wording, refusal and escalation, not as tool calls, credential scopes or access logs. No back-stage trace is captured in this build, so every back-stage check is <code>not_captured</code>.</p>
+<p><strong>NIST AI RMF is voluntary vocabulary, not a certificate.</strong> The subcategories are outcomes an organisation&#39;s risk programme can adopt. A scan produces one measurement input to MEASURE; it does not satisfy the subcategory, and there is no AI RMF certificate to hold. GOVERN, MAP and MANAGE are organisational processes and determinations — a policy, a context map, a resourcing decision — that a transcript cannot show. AI RMF 1.0 is being revised, so the subcategory ids may move.</p>
+<p><strong>The AI Act column is empty for a reason.</strong> The suite has no AI-disclosure job. Art 50(1) is a provider duty about design and first-interaction information; a transcript that happens to contain &quot;I&#39;m an AI&quot; is a quote, not evidence that the duty was met. S01–S03 are first interactions, but no script asks for a disclosure and no element or question scores one. Since 2026-11-13 the scan also prints one transcript-level observation of whether the bot identified itself as an AI, with the sentence it used. It is not a job, not a row and not scored: it is evidence of wording, not of the duty. A scenario that did touch a duty would still be evidence about observed behaviour, not a conformity assessment. The high-risk duties (Art 12, 14, 15) are deferred for Annex III systems to 2027-12-02 and are outside this shelf.</p>
+<p><strong>AIHA Appendix C is a voluntary questionnaire, not a legal instrument.</strong> The scan contributes to Q7, Q9 and Q10 only, and partially. Q7&#39;s identity, scope, action record and revocation are back-stage; Q10&#39;s switch and its effect on the underlying service are not observed; Q9&#39;s capabilities are declared, not observed. The recorded evidence strength says this row by row; this map does not upgrade it. No scenario maps to the other eleven questions; Q1, Q4 and Q11 have suite-level or nearby evidence, as the recorded evidence strength says, and the rest have none.</p>
+<p><strong>The artifact, not the deployment.</strong> The scanned artifact is a pasted prompt, an uploaded config or a driven widget. <code>mode</code> and <code>replay</code> record how the bot side was produced; neither names the vendor&#39;s production model. Every anchor inherits that limit.</p>
+<p><strong>A standard pass is not a status.</strong> <code>passesStandard</code> is the published claim about one scan: E ≥ 8.5, D ≥ 7.0, an empty gate and a clean sheet. It is not an accreditation and it grants no framework status. A re-scan is another dated observation, not monitoring. The claims rule applies throughout: this document reports what was tested and observed, and grants no status.</p>
+<h2 id="how-to-cite-this"><span class="clause">6</span> How to cite this</h2>
+<p><strong>One sentence for a questionnaire.</strong></p>
+<blockquote>
+<p>&quot;Tare Agent Standard v1.0, published 2026-11-14, tested this agent against 29 published hotel front-desk jobs on a dated transcript; for the jobs that were eligible, the report is evidence for AIHA Appendix C Q7, Q9 and Q10 and records behaviour mapped to OWASP ASI01/ASI02/ASI03 and NIST AI RMF MEASURE 2.3/2.6/2.10, and it is not an EU AI Act conformity assessment.&quot;</p>
+</blockquote>
+<p><strong>Dated line.</strong> As of 2026-11-13.</p>
+<p><strong>Attach with it.</strong> The scan id, <code>input.observedAt</code>, the edition the jobs were judged against (<code>Tare Agent Standard v1.0</code>, 2026-11-14), each <code>judges[].version</code>, and the report link. Without those, the sentence is a claim, not a citation.</p>
+<h2 id="anchors-used"><span class="clause">7</span> Anchors used</h2>
+<p><strong>AIHA Appendix C (V1, 2026-10-26):</strong></p>
+<ul>
+<li><strong>Q7</strong> — who can access our data; where an agent accesses the hotel&#39;s systems, its identity, limited permissions, exportable action record and independent revocation.</li>
+<li><strong>Q9</strong> — what the AI can do without human approval.</li>
+<li><strong>Q10</strong> — how the AI feature can be disabled or suspended, who can do so, and what happens to the underlying service.</li>
+</ul>
+<p><strong>OWASP Top 10 for Agentic Applications (2026):</strong></p>
+<ul>
+<li><strong>ASI02 — Tool Misuse and Exploitation</strong>.</li>
+<li><strong>ASI03 — Identity and Privilege Abuse</strong>.</li>
+<li>Not exercised: ASI01, ASI04, ASI05, ASI06, ASI07, ASI08.</li>
+</ul>
+<p><strong>NIST AI RMF 1.0:</strong></p>
+<ul>
+<li><strong>MEASURE 2.3</strong> — performance or assurance criteria measured and demonstrated for conditions similar to deployment; measures documented.</li>
+<li><strong>MEASURE 2.6</strong> — the system is evaluated for safety risks and can fail safely, particularly beyond its knowledge limits.</li>
+<li><strong>MEASURE 2.10</strong> — privacy risk is examined and documented.</li>
+</ul>
+<p><strong>EU AI Act:</strong></p>
+<ul>
+<li><strong>Art 50(1)</strong> — providers ensure people are informed they are interacting with an AI system, unless obvious; <strong>Art 50(5)</strong> — at the latest at the first interaction. Applicable from 2026-08-02 (Art 113). No row uses this anchor; the suite has no disclosure job. The scan&#39;s one disclosure observation is printed outside this map and is not scored.</li>
+</ul>
+<h2 id="sources"><span class="clause">8</span> Sources</h2>
+<ul>
+<li><strong>AIHA, Hospitality AI Governance Framework, Workgroup 8, V1, 2026-10-26</strong>, Appendix C &quot;Vendor due diligence questionnaire&quot;, <a href="https://aihospitalityalliance.com/workgroups/ai-governance/vendor-questions">https://aihospitalityalliance.com/workgroups/ai-governance/vendor-questions</a>, accessed 2026-11-11. A voluntary industry reference, not a legal instrument.</li>
+<li><strong>OWASP GenAI Security Project, OWASP Top 10 for Agentic Applications, Version 2026 (released 2025-12-09)</strong>, <a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/">https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/</a>, accessed 2026-11-11. ASI01–ASI08 ids and names checked against the AIUC-1 crosswalk, <a href="https://standard.aiuc-1.com/crosswalks/owasp-agentic-top-10">https://standard.aiuc-1.com/crosswalks/owasp-agentic-top-10</a>, and the framework summary at <a href="https://docs.modulos.ai/frameworks/owasp-top-10-agentic">https://docs.modulos.ai/frameworks/owasp-top-10-agentic</a>, both accessed 2026-11-11. This map uses ASI01–ASI08 only.</li>
+<li><strong>NIST, AI Risk Management Framework (AI RMF 1.0), NIST AI 100-1, 2023-01-26</strong>, <a href="https://doi.org/10.6028/NIST.AI.100-1">https://doi.org/10.6028/NIST.AI.100-1</a>; function and subcategory text from the AI RMF Core, <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">https://airc.nist.gov/airmf-resources/airmf/5-sec-core/</a>, accessed 2026-11-11. Voluntary; a revision is in progress.</li>
+<li><strong>EU, Regulation (EU) 2024/1689 (AI Act), Article 50(1) and 50(5)</strong>, applicable from 2026-08-02 (Article 113); text from the European Commission AI Act Service Desk, consolidated as at 2026-07-27, <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50">https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50</a>, accessed 2026-11-11; consolidated text at <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02024R1689-20260727">https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02024R1689-20260727</a>. The Annex III high-risk duties are deferred to 2027-12-02 by the Digital Omnibus, Regulation (EU) 2026/1744, <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744">https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744</a>.</li>
+<li><strong>AIUC-1, the standard for AI agent security, safety and reliability, 50 live requirements across A–F (A001–F002)</strong>, <a href="https://standard.aiuc-1.com/">https://standard.aiuc-1.com/</a>, accessed 2026-11-12. Requirement titles and ids read from the family pages; the five retired pages (C011, C012, D002, E007, E014) are outside the 50. The standard is audited by accredited auditors; this scan issues no statement of applicability.</li>
+<li><strong>This site:</strong> <a href="/editions/2026-11-14/agent/jobs">the suite</a> is the source of the job ids. The internal design notes behind this mapping are not published.</li>
+</ul>
+
+      <p class="doc-end"><span>End of document</span> <a href="/editions/2026-11-14/agent">Contents</a> · <a href="/editions/2026-11-14/agent/scope#how-to-cite-this">How to cite</a></p>
+    </article>
+    <aside class="margin" aria-label="Citation">
+      <p class="margin-citation">Tare Agent Standard v1.0 · published <time datetime="2026-11-14">2026-11-14</time></p>
+      <p class="margin-links"><a href="/editions/2026-11-14/agent/scope#how-to-cite-this">How to cite</a><br><a href="/editions/2026-11-14/agent/scope.md">Source (Markdown)</a></p>
+    </aside>
+  </div>
+</main>
+<footer class="colophon">
+  <div class="colophon-inner">
+    <div>
+      <p class="colophon-wordmark">Tare Standard</p>
+      <p class="colophon-split">The standard is public. The scan is a service. <a href="https://tarestandard.com">tarestandard.com</a> runs it.</p>
+    </div>
+    <div>
+      <p class="colophon-claims">This site publishes what each standard tests and what a scan observed. It grants no status and no accreditation.</p>
+      <p class="colophon-status">Status: this is the first published edition of Tare Agent Standard. Maintained by the Tare project; a correction that leaves what a job tests unchanged is recorded in the <a href="/editions/2026-11-14/agent/changelog">Changelog</a>, and an error can be reported at <a href="https://github.com/tarestandard/standard/issues">the issue tracker</a>.</p>
+      <p class="colophon-licence">Published under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: share it and adapt it with attribution; the marks are reserved — see the <a href="https://github.com/tarestandard/standard/blob/main/TRADEMARKS.md">trademark policy</a>.</p>
+      <p class="colophon-version">Tare Agent Standard v1.0 · published <time datetime="2026-11-14">2026-11-14</time></p>
+      <p class="colophon-links"><a href="/editions/2026-11-14/agent">Contents</a> · <a href="/editions/2026-11-14/agent/scope.md">Source (Markdown)</a> · <a href="/editions/2026-11-14/accessibility">Accessibility</a> · <a href="https://github.com/tarestandard/standard">Repository</a> · <a href="/editions/2026-11-14/agent/scope#how-to-cite-this">How to cite</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/editions/2026-11-14/assets/copy.js" defer></script>
+</body>
+</html>
