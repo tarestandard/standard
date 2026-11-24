@@ -51,7 +51,9 @@ function fileFor(url: string): string {
 }
 
 function lineFor(url: string): string {
-  return url === "/" || url === "/404" ? SITE_VERSION_LINE : editionOf(url).versionLine;
+  return url === "/" || url === "/404" || url === "/notes"
+    ? SITE_VERSION_LINE
+    : editionOf(url).versionLine;
 }
 
 beforeAll(() => {
@@ -444,7 +446,9 @@ describe("the social card and the structured data", () => {
       expect(png.readUInt32BE(20), name).toBe(630);
     }
     for (const url of PUBLISHED_PAGE_URLS) {
-      const edition = url === "/" ? undefined : editionOf(url);
+      // The notes are a site page (#788): they print the site card, not an
+      // edition's.
+      const edition = url === "/" || url === "/notes" ? undefined : editionOf(url);
       const file = edition ? OG_FILE[edition.key] : OG_FILE.site;
       const html = page(url);
       expect(html, url).toContain(
@@ -567,7 +571,9 @@ describe("the dated record is one derived pair per standard", () => {
     const sitemap = readFileSync(join(outDir, "sitemap.xml"), "utf8");
     const lastmods = [...sitemap.matchAll(/<lastmod>([^<]*)<\/lastmod>/g)].map((match) => match[1]);
     expect(lastmods).toEqual([
-      ...PUBLISHED_PAGE_URLS.map((url) => (url === "/" ? SITE_DATE : editionOf(url).date)),
+      ...PUBLISHED_PAGE_URLS.map((url) =>
+        url === "/" || url === "/notes" ? SITE_DATE : editionOf(url).date,
+      ),
       SITE_DATE,
     ]);
   });
