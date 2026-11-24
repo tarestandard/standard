@@ -897,7 +897,7 @@ function renderNotes(standards: readonly StandardEdition[], notes: readonly Note
       <p class="standfirst">Dated observations from the scans behind the standard.</p>
     </header>
     <p class="intro">Each entry is one thing we ran, the day we ran it, and what the transcript or the capture contained — including the runs that captured nothing. These are findings, not scores: nothing here prints a band, and no property is named without its consent.</p>
-    <p class="intro-note">Subscribe: <a href="/notes.xml">Atom feed</a>. The standard itself is at <a href="/">the front page</a>.</p>
+    <p class="intro-note">Subscribe: <a href="/notes.xml">Atom feed</a>. To check your own agent against the standard, <a href="https://tarestandard.com/scan?site=notes">run the free scan</a> — the link carries this page's name, so a scan it produces says where it came from (#790). The standard itself is at <a href="/">the front page</a>.</p>
   </article>
 
   <section class="notes" aria-labelledby="notes">
