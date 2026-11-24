@@ -18,6 +18,26 @@ npm test           # the gates and the page tests
 npm run typecheck
 ```
 
+## Citing this standard
+
+A standard is only citable if the citation survives the page. Cite the document by
+its edition, link the live page, and know that the frozen edition at
+`/editions/2026-11-14/` keeps the same text after the live pages move on.
+
+> Tare Agent Standard v1.0 (2026-11-14). Tare Standard.
+> https://tarestandard.org/agent/jobs
+
+| What | Live | Frozen | Source in this repository |
+|---|---|---|---|
+| The Agent Standard | <https://tarestandard.org/agent> | `/editions/2026-11-14/agent.html` | `docs/standard/agent/` |
+| The 29 jobs, `HFD-S*` and `HFD-X*` | <https://tarestandard.org/agent/jobs> | `/editions/2026-11-14/agent/jobs.html` | `docs/standard/agent/register.md` |
+| The Shopfront Standard | <https://tarestandard.org/shopfront> | `/editions/2026-11-14/shopfront.html` | `docs/standard/shopfront/` |
+| The dated release a consumer pins | <https://tarestandard.org/standard.json> | `/editions/2026-11-14/standard.json` | `standard.json` |
+
+The text is CC BY 4.0: quote it with the edition date. Each document prints its own
+citation block, and every page carries a date; a quote without the edition is a quote
+of something that may have changed.
+
 ## What is in here
 
 | Path | What it is |
