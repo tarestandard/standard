@@ -12,6 +12,7 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import type { Tokens } from "marked";
 import { Marked, Renderer } from "marked";
+import { atomNotesFeed, loadNotes, type NoteEntry } from "./notes";
 import {
   ACCESSIBILITY_PAGE,
   ERRATA_URL,
@@ -53,6 +54,8 @@ import {
  */
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+/** The notes (#788): the one page of dated observations the site publishes. */
+const NOTES_URL = "/notes";
 const DEFAULT_OUT_DIR = join(REPO_ROOT, "standard-site", "dist");
 const STYLESHEET = join(REPO_ROOT, "standard-site", "site.css");
 const COPY_SCRIPT = join(REPO_ROOT, "standard-site", "copy.js");
@@ -186,6 +189,14 @@ export function buildStandardSite(options: BuildOptions = {}): BuildResult {
     }
   }
 
+  // The notes (#788): dated observations from the scans behind the standard.
+  // The changelog records what the standard published; this records what we
+  // found applying it, which is the thing a writer or an answer engine can
+  // quote. Pushed before link validation and before the 404, because the
+  // footer links it and the page set is ordered as the sitemap is.
+  const notes = loadNotes();
+  pages.push(renderNotes(standards, notes));
+
   pages.unshift(renderChooser(standards));
   pages.push(renderNotFound(standards));
   pages.push(renderAccessibility());
@@ -198,6 +209,7 @@ export function buildStandardSite(options: BuildOptions = {}): BuildResult {
       return changelog ? [`${changelog.url.slice(1)}.xml`] : [];
     }),
     "accessibility.md",
+    "notes.xml",
   ]);
   validateLinks(
     pages,
@@ -268,12 +280,18 @@ export function buildStandardSite(options: BuildOptions = {}): BuildResult {
       xml: atomFeed(standard, changelog, entries, page.anchors),
     };
   });
+  // The notes feed carries the observations, not the editions: a consumer that
+  // subscribes to the standard's changes is not asking to be told what we found
+  // in the field, and the two must not be merged.
+  feeds.push({ file: "notes.xml", xml: atomNotesFeed(notes) });
 
   // Build the two indexes and validate every URL they emit against the files
   // this build is about to write, before the output directory is touched. A
   // URL with no file is the `/settled` class of bug: published, advertised and
   // never deployed, and it must not leave a half-written directory behind.
-  const sitemap = sitemapXml(standards);
+  // The notes page is a site surface, like the chooser: its dated record is
+  // the site's own date, and each entry prints its own day inside the page.
+  const sitemap = sitemapXml(standards, [{ url: NOTES_URL, date: SITE_DATE }]);
   const llms = llmsTxt(standards);
   if (!existsSync(COPY_SCRIPT)) {
     throw new Error("The citation copy control is missing: standard-site/copy.js");
@@ -859,6 +877,54 @@ function renderChooser(standards: readonly StandardEdition[]): Page {
   };
 }
 
+function renderNotes(standards: readonly StandardEdition[], notes: readonly NoteEntry[]): Page {
+  const entries = notes
+    .map(
+      (note) => `<article class="note" id="${note.date}">
+      <header class="note-head">
+        <time datetime="${note.date}">${note.date}</time>
+        <h2>${escapeHtml(note.title)}</h2>
+      </header>
+      <div class="note-body">${note.html}</div>
+    </article>`,
+    )
+    .join("\n      ");
+
+  const body = `<main id="main" class="front">
+  <article class="title-page">
+    <header class="title-block">
+      <h1>Notes</h1>
+      <p class="standfirst">Dated observations from the scans behind the standard.</p>
+    </header>
+    <p class="intro">Each entry is one thing we ran, the day we ran it, and what the transcript or the capture contained — including the runs that captured nothing. These are findings, not scores: nothing here prints a band, and no property is named without its consent.</p>
+    <p class="intro-note">Subscribe: <a href="/notes.xml">Atom feed</a>. To check your own agent against the standard, <a href="https://tarestandard.com/scan?site=notes">run the free scan</a> — the link carries this page's name, so a scan it produces says where it came from (#790). The standard itself is at <a href="/">the front page</a>.</p>
+  </article>
+
+  <section class="notes" aria-labelledby="notes">
+    <h2 id="notes">The record</h2>
+    ${entries}
+  </section>
+</main>`;
+
+  return {
+    url: NOTES_URL,
+    file: "notes.html",
+    anchors: new Set(["main", ...notes.map((note) => note.date)]),
+    html: pageShell({
+      title: "Notes — Tare Standard",
+      description:
+        "Dated observations from the scans behind Tare Standard: what the bots did, what the pages exposed, and the runs that captured nothing.",
+      canonical: `${SITE_ORIGIN}${NOTES_URL}`,
+      currentUrl: NOTES_URL,
+      ogType: "website",
+      standards,
+      section: "Notes",
+      feed: { title: "Tare Standard — notes", href: `${NOTES_URL}.xml` },
+      body,
+    }),
+  };
+}
+
 function renderNotFound(standards: readonly StandardEdition[]): Page {
   const groups = standards
     .map((standard) => {
@@ -1374,7 +1440,7 @@ function colophon(standard?: StandardEdition, doc?: StandardDoc): string {
       )}</p>
       <p class="colophon-links"><a href="${contents}">Contents</a>${
         doc ? ` · <a href="${doc.url}.md">Source (Markdown)</a>` : ""
-      } · <a href="/editions/${SITE_DATE}">Frozen edition</a> · <a href="/standard.json">Release (JSON)</a> · <a href="${ACCESSIBILITY_PAGE.url}">Accessibility</a> · <a href="${PUBLIC_REPO_URL}">Repository</a>${
+      } · <a href="/editions/${SITE_DATE}">Frozen edition</a> · <a href="/standard.json">Release (JSON)</a> · <a href="/notes">Notes</a> · <a href="${ACCESSIBILITY_PAGE.url}">Accessibility</a> · <a href="${PUBLIC_REPO_URL}">Repository</a>${
         standard ? ` · <a href="${standard.citeUrl}">How to cite</a>` : ""
       }</p>
     </div>
@@ -1918,12 +1984,16 @@ ${sections}
 `;
 }
 
-function sitemapXml(standards: readonly StandardEdition[]): string {
+function sitemapXml(
+  standards: readonly StandardEdition[],
+  extra: readonly { url: string; date: string }[] = [],
+): string {
   const entries = [
     { url: FRONT_PAGE.url, date: SITE_DATE },
     ...standards.flatMap((standard) =>
       standard.docs.map((doc) => ({ url: doc.url, date: standard.date })),
     ),
+    ...extra,
     { url: ACCESSIBILITY_PAGE.url, date: SITE_DATE },
   ]
     .map(

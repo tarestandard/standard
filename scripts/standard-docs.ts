@@ -284,6 +284,9 @@ export const SITE_VERSION_LINE = `Tare Standard · published ${SITE_DATE}`;
 export const PUBLISHED_PAGE_URLS: readonly string[] = [
   "/",
   ...PUBLISHED_STANDARDS.flatMap((standard) => standard.docs.map((doc) => doc.url)),
+  // The notes (#788): the one page of dated observations. It is a site page,
+  // not a document of either standard, and it prints the site's dated line.
+  "/notes",
 ];
 
 export const FRONT_PAGE = {

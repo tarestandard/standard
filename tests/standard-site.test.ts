@@ -139,11 +139,13 @@ function hrefs(html: string): string[] {
 
 /** The dated line the page at `url` prints: its edition's, or the site's. */
 function lineFor(url: string): string {
-  return url === "/" || url === "/404" ? SITE_VERSION_LINE : editionOf(url).versionLine;
+  return url === "/" || url === "/404" || url === "/notes"
+    ? SITE_VERSION_LINE
+    : editionOf(url).versionLine;
 }
 
 function dateFor(url: string): string {
-  return url === "/" || url === "/404" ? SITE_DATE : editionOf(url).date;
+  return url === "/" || url === "/404" || url === "/notes" ? SITE_DATE : editionOf(url).date;
 }
 
 /** The dated line as the frame prints it: the date wrapped in <time>. */
@@ -305,8 +307,10 @@ describe("the licence and the status of the document", () => {
       expect(html, url).toContain(`<link rel="license" href="${LICENSE_URL}">`);
       expect(html, url).toContain(LICENSE_NAME);
       expect(html, url).toContain(ERRATA_URL);
+      // The notes are a site page (#788), so they carry the site's status
+      // line, not an edition's.
       const status =
-        url === "/"
+        url === "/" || url === "/notes"
           ? "Status: this site publishes the standards listed at its contents"
           : `Status: this is the first published edition of ${editionOf(url).name}.`;
       expect(html, url).toContain(status);
@@ -336,6 +340,9 @@ describe("the frozen edition", () => {
     expect(existsSync(join(source, "index.html"))).toBe(true);
     expect(existsSync(join(outDir, "editions", "2026-11-14", "index.html"))).toBe(true);
     for (const url of PUBLISHED_PAGE_URLS) {
+      // The notes postdate the frozen edition (#788): a page published after
+      // 2026-11-14 is not in its copy, and must not be expected there.
+      if (url === "/notes") continue;
       const file = url === "/" ? "index.html" : `${url.slice(1)}.html`;
       expect(existsSync(join(source, file)), url).toBe(true);
     }
@@ -362,6 +369,7 @@ describe("the published page set", () => {
       "agent/scope.html",
       "agent/settled.html",
       "index.html",
+      "notes.html",
       "shopfront.html",
       "shopfront/capabilities.html",
       "shopfront/changelog.html",
@@ -392,6 +400,8 @@ describe("the published page set", () => {
       "/",
       ...STANDARD_DOCS.map((doc) => doc.url),
       ...SHOPFRONT.docs.map((doc) => doc.url),
+      // The notes are a site page, not a document of either standard (#788).
+      "/notes",
     ]);
     expect(result.pages).toEqual([...PUBLISHED_PAGE_URLS, "/404", "/accessibility"]);
   });
@@ -1206,7 +1216,7 @@ describe("links, claims and the error page", () => {
       "accessibility.md",
       "standard.json",
     ]);
-    const feeds = new Set(["agent/changelog.xml", "shopfront/changelog.xml"]);
+    const feeds = new Set(["agent/changelog.xml", "shopfront/changelog.xml", "notes.xml"]);
     const anchorsByUrl = new Map([...pageByUrl].map(([url, html]) => [url, ids(html)]));
 
     for (const [url, html] of pageByUrl) {
